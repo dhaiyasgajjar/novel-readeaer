@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 9 - Webtoon Reader</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Caveat:wght@400;700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Permanent+Marker&display=swap">
+    <style>
+        :root { --bg-color: #1a1a1a; --text-color: #e5e7eb; --thought-bg: #2d3748; --dialogue-bg: #2d2d2d; --sfx-color: #f87171; --accent-gold: #fbbf24; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Nunito', sans-serif; max-width: 700px; margin: 0 auto; padding: 40px 20px; line-height: 1.7; font-size: 19px; }
+        .location { font-family: 'Permanent Marker', cursive; text-align: center; color: var(--accent-gold); font-size: 1.5em; margin: 60px 0 40px 0; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .sfx { font-family: 'Bangers', system-ui; font-size: 3.5em; color: var(--sfx-color); text-align: center; margin: 40px 0; letter-spacing: 3px; text-shadow: 3px 3px 0px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; transform: rotate(-2deg); }
+        .thought { font-family: 'Caveat', cursive; font-size: 1.6em; background-color: var(--thought-bg); border-left: 5px solid #a78bfa; padding: 15px 25px; margin: 25px 10%; color: #ddd6fe; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .narrator { font-family: 'Nunito', sans-serif; margin: 25px 0; color: #9ca3af; text-align: justify; }
+        .dialogue { font-family: 'Comic Neue', cursive; font-weight: 700; background-color: var(--dialogue-bg); border-radius: 15px; padding: 20px; margin: 25px 0; position: relative; box-shadow: 0 4px 8px rgba(0,0,0,0.4); font-size: 1.2em; }
+        .dialogue::after { content: ''; position: absolute; width: 0; height: 0; border: 15px solid transparent; }
+        .dialogue .name { font-family: 'Nunito', sans-serif; font-weight: 900; margin-bottom: 8px; display: block; text-transform: uppercase; font-size: 0.8em; letter-spacing: 1.5px; opacity: 0.8; }
+        .mumu { border: 2px solid #10b981; margin-left: 10%; }
+        .mumu::after { border-top-color: #10b981; border-bottom: 0; border-right: 0; bottom: -15px; left: 20px; }
+        .mumu .name { color: #34d399; }
+        .father { border: 2px solid #3b82f6; margin-right: 10%; }
+        .father::after { border-top-color: #3b82f6; border-bottom: 0; border-left: 0; bottom: -15px; right: 20px; }
+        .father .name { color: #93c5fd; }
+        .divider { text-align: center; color: #4b5563; margin: 60px 0; font-size: 1.5em; letter-spacing: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="location">CHAPTER 9</div>
+
+    <div class="narrator">It was said that one could tell a person’s character by looking at their room.</div>
+    <div class="narrator">The room where they were called to was neat. Furniture boasting an antique appearance, including the elegant orchid on the desk. All of that showed how much he valued dignity.</div>
+    <div class="narrator">Yu Yeop-kyung, who entered the room, looked around nervously.</div>
+
+    <div class="thought">This will be difficult...</div>
+
+    <div class="narrator">Although they didn’t talk much, he could imagine his predictability. The more the room was like this, the more difficult the person would be to deal with.</div>
+
+    <div class="thought">What the hell does he want to talk about?</div>
+
+    <div class="narrator">Yu Yeop-kyung has been trying to find an answer. Oh Ji-kang guessed that it was related to his eldest son, Yu Jin-sung, who graduated from Heavenly Martial Arts Academy and entered the good graces of the Imperial family.</div>
+
+    <div class="thought">I’m worried.</div>
+
+    <div class="narrator">He was afraid that he would put unreasonable pressure on it.</div>
+    <div class="narrator">As he went inside, he saw the head, Mo Yun, sitting at the desk, writing something with a brush. His first impression was quite strong. Unlike his drooping eyes, he had thick eyebrows. It could be said that he had a unique face with softness and strength at the same time.</div>
+
+    <div class="dialogue"><span class="name" style="color: #60a5fa;">Deputy Oh Ji-kang</span>"Deputy Oh Ji-kang. Greets the Minister of Criminal Affairs."</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"Yu Yeop-kyung. Greets the Minister of Criminal Affairs."</div>
+
+    <div class="narrator">As the head of the Criminal Affairs, who is one of the high-ranking officials of the six departments under the Imperial family, the two greeted him with courtesy.</div>
+    <div class="narrator">At that, Minister Mo Yun got up and greeted them.</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Come in. It must have been tough on the long journey."</div>
+
+    <div class="narrator">And reached out his hand, telling them to sit. After waiting for Mo Yun to sit at the top seat, Yu Yeop-kyung and deputy Oh Ji-kang walked over and sat down.</div>
+    <div class="narrator">Oh Ji-kang greeted him again.</div>
+
+    <div class="dialogue"><span class="name" style="color: #60a5fa;">Deputy Oh Ji-kang</span>"How have you been?"</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"I’m always in the Imperial city. Nothing happens here. Mister Oh, who always travels all over the country and monitors, should be the one with a lot to say. It must be troublesome."</div>
+
+    <div class="dialogue"><span class="name" style="color: #60a5fa;">Deputy Oh Ji-kang</span>"Of course not. What I’m doing is what needs to be done."</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Hehehe. That is what people have to do. Anyway, Yu Hakjeong is here too?"</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"Not Hakjeong. It has been a long time since I was sacked. You don’t need to use that title anymore."</div>
+
+    <div class="narrator">He bowed his head and said that. Seeing him like that, Minister Mo Yun laughed.</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"You are a scholar who taught the children of high-ranking officials and talented people all over the nation but got fired. Still, your dignity doesn’t go away."</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"If you say that, I can’t help but feel happy."</div>
+
+    <div class="narrator">It was a title that gets taken away after being removed. However, as he was a respected person in a teaching position, even if he retired and was dismissed, he was called by his former title.</div>
+
+    <div class="thought">Was I too scared without reason?</div>
+
+    <div class="narrator">Yu Yeop-kyung wasn’t fully convinced that this meeting was for good, but he thought that the Minister was a better person than he imagined.</div>
+    
+    <div class="divider">✦ ✦ ✦</div>
+
+    <div class="narrator">However, the smiling man’s expression soon turned serious.</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Our greeting must end here. We need to head into the main topic."</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"Main topic?"</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Yu Hakjeong. Your son graduated from Heavenly Martial Arts Academy in second place and became a Censor of the Inspection Agency."</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"... yes."</div>
+
+    <div class="narrator">Mo Yun spoke in a low voice as he rubbed his chin.</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"It was pretty difficult. Your son has an official position, and he keeps digging around here and there."</div>
+
+    <div class="narrator">He spoke as his eyes were fiercely stuck on Yu Yeop-kyung. At that, Yu Yeop-kyung gulped.</div>
+    <div class="narrator">Indeed, his smile and kind gestures were only for his greeting. Now, the man in front of him was the minister, the supreme head of Criminal Affairs who had summoned him after his exile. There was no way he was called without a reason.</div>
+    <div class="narrator">With a trembling voice, Yu Yeop-kyung spoke.</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"I feel like there is some kind of misunderstanding. Lord."</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Misunderstanding? What kind of misunderstanding? It’s not that I’m angry at your son’s actions."</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"..."</div>
+
+    <div class="narrator">Beads of sweat were forming on Yu Yeop-kyung’s tense forehead. It seemed like his eldest son had provoked someone in a high position.</div>
+
+    <div class="thought">Then is it because of me, his father?</div>
+
+    <div class="narrator">That could be the only reason. Even so, when he was sent to exile, the child had cried so much and said that he would make those who hurt his father pay the price.</div>
+
+    <div class="thought">Jin-sung. Jin-sung...</div>
+
+    <div class="narrator">Something made his heart flutter, but uncomfortable too. It looked like he went around doing his own investigation regarding his father’s matter. As soon as his exile was over, he seemed to be in another problem.</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"Lord… if my son did something to make some great person uncomfortable, it’s my fault for not properly disciplining him as a father. If you are angry…"</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Ha! Do you think that you’ll be able to resolve this?"</div>
+
+    <div class="narrator">The air around them grew heavier. Even Oh Ji-kang was becoming restless. He didn't expect the man to corner Yu Yeop-kyung like this.</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Anger. Ha. That isn’t important."</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"Lord."</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Your son has put me in a very difficult situation."</div>
+
+    <div class="narrator">At those words which came out angrily, Yu Yeop-kyung got up from his seat. And then clasped his hands and bowed.</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"It’s all my fault. If something happened, please take out your anger on me, not my son."</div>
+
+    <div class="narrator">Protecting his son was the only thing he could do as a father. At that, Mo Yun snorted and said:</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Do you think everything will change if you do that? It’s too late."</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"L-Lord!"</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"How do you plan on stopping the constant talking of my wife and daughter?"</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"... sorry?"</div>
+
+    <div class="narrator">Yu Yeop-kyung, who was very nervous and broke out in cold sweat, and Oh Ji-kang, who was next to him, were extremely confused. What the hell was happening?</div>
+    <div class="narrator">They were puzzled when the man shook his head and said,</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Your eldest son. He’s becoming a role model for young people these days. Do you know that?"</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"What do you…"</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"The son of a scholar family who had no qualms saying that he would disprove the unfair accusations against his father became a Murim warrior, and even came in second place at the Heavenly Martial Arts Academy, and proved that his father had nothing to do with that ‘incident.’"</div>
+
+    <div class="thought">!!!</div>
+
+    <div class="narrator">At those words, Yu Yeop-kyung was shocked. Did that mean he wasn’t released through some pardon that was offered to most people? Even Oh Ji-kang didn’t seem to know the full story.</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Looks like you don’t know. It’s said that pardons were granted according to the seriousness of the crime, and did you think that you’d be pardoned after 17 years because the crime you were accused of was considered simple?"</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"Ah… that… that…"</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"You have a very good son. No, I’m envious that you have such a son."</div>
+
+    <div class="narrator">At those words, Yu Yeop-kyung’s eyes turned red. What father wouldn’t be delighted by the fact that his eldest son accomplished such a feat. Looking at him, Mo Yun laughed and said,</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Thanks to your son, my daughter, who was raised like a princess, is making a fuss about going to the Heavenly Martial Arts Academy. How do you plan on taking responsibility for this?"</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"Huh? What do you…"</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Recently, the young women in the Imperial family and their relatives seem to be longing for your eldest son, and they want to enter the Heavenly Martial Arts Academy. So is my daughter."</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"…."</div>
+
+    <div class="narrator">Yu Yeop-kyung was totally flustered. To him, Mo Yun said.</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Take responsibility."</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"What do you mean?"</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"That place is an academy. For me to send my fragile daughter to a place where people are nurtured into Murim warriors, just because I don’t have sons who want to go, are you just going to ignore my pain?"</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"Ha… ha oh, if you refuse sternly and say no to your daughter…"</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Ha! Don’t you think I tried that? But she ran away twice… ahh."</div>
+
+    <div class="narrator">Mo Yun grabbed the back of his neck and rubbed it. It seemed like he was really stressed about it. He seemed to be genuinely worried about his daughter. Mo Yun, who was rubbing the back of his neck with his hand, spoke.</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"I won’t drag this out. Your eldest son is responsible for this, and you cannot run away from this."</div>
+
+    <div class="thought">… this is tough.</div>
+
+    <div class="narrator">Yu Yeop-kyung and Oh Ji-kang had the same thought. However, they couldn’t say anything. Mo Yun continued to speak.</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"I know that once you enter the academy, you’ll be forced to live in the academy’s dormitories for three years. If I had a chance to put a servant or escort in the academy, I would have. But we can’t. If it wasn’t for what that Hwang-suk built… Anyway, your second son will also be admitted to the same academy, right?"</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"Huh?"</div>
+
+    <div class="narrator">What now? He just came out of exile. There was no way he could know that. Listening to what was said, his second child was following his older brother’s path. Mo Yun pulled something out. It was a gold coin.</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Take this."</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"Why?"</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Despite being angry, I’m a person who knows how to act sensibly. Think of this as a commission."</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"Commission?"</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Tell your second son to keep his eyes open and protect my daughter. If anything happens to my child, then muddy waters will…"</div>
+
+    <div class="narrator">He didn’t speak anymore.</div>
+
+    <div class="thought">Ah…</div>
+
+    <div class="narrator">He seemed to care for his daughter with utmost sincerity. Yu Yeop-kyung, who learned why he was called, sighed in relief.</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"Lord. No commission is needed. If my son is really going to follow his brother and enter the academy, I will inform him of that."</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Can you do that?"</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"I see your concerns. How can I ignore them?"</div>
+
+    <div class="narrator">At those words, Mo Yun’s face relaxed a little. In a softer voice, he said.</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"If you can do that, I think I can feel relieved. Please help this father."</div>
+
+    <div class="narrator">At those words, Yu Yeop-kyung was concerned. Being a Minister of Criminal Affairs, he should have better contacts in the academy. However, he didn’t contact them and asked his second son for help. In the end, he asked.</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"But, excluding my son, shouldn’t there be other people who can do…"</div>
+
+    <div class="narrator">Before the question even ended, Mo Yun’s expression became displeased.</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Why would I be concerned with others when your second son is there?"</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"Huh?"</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Ah. I will let you know in advance. Don’t let your son make advances on my daughter. Of course, if my daughter shows interest, tell him to be subtle. Needless to say, my daughter has such an outstanding appearance that…"</div>
+
+    <div class="thought">Ahh... a typical daughter fool!</div>
+
+    <div class="narrator">He had a woman he treasured in his life, so he could understand how much Mo Yun loved his daughter.</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Ah, I heard from the butler, you brought your second son?"</div>
+
+    <div class="narrator">He misunderstood because they are the same age. At that, Yu Yeop-kyung shook his head.</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"No. He’s my adopted son."</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Adopted son? You took in another son. How unique."</div>
+
+    <div class="dialogue father"><span class="name">Yu Yeop-kyung</span>"It just happened like that."</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Hmm. Then it’s unfortunate. If it was your second son, I wanted to meet him directly…"</div>
+
+    <div class="sfx">KYAK!</div>
+
+    <div class="narrator">A scream from outside. Hearing that, Mo Yun jumped up from his seat and opened the door to go outside. The other two in the room followed him.</div>
+
+    <div class="thought">!!!</div>
+
+    <div class="narrator">Yu Yeop-kyung, who went outside, couldn’t hide his shock. Mumu was holding someone’s hand, and the other kid seemed to be in pain.</div>
+
+    <div class="thought">Oh my god. Things were too silent.</div>
+
+    <div class="narrator">And there came the accident. Mo Yun, who saw that, spoke in a trembling voice.</div>
+
+    <div class="dialogue"><span class="name" style="color: #f87171;">Minister Mo Yun</span>"Yu Hakjeong… is that your adoptive son who is squeezing my son’s hand?"</div>
+
+    <div class="thought">… ahaha!</div>
+
+    <div class="narrator">Yu Yeop-kyung’s face darkened. He could feel that his lifespan shortened by what Mumu did.</div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; padding-top: 30px; border-top: 2px solid #333; font-family: 'Nunito', sans-serif;">
+<a href="Chapter_8.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">&larr; Previous</a><a href="index.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">Home</a><a href="Chapter_10.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">Next &rarr;</a>
+</div>
+</body>
+</html>
