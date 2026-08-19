@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 7 - Mumu Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&family=Poppins:ital,wght@0,300;0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050608;
+            --panel-bg: #0d0f13;
+            --text-color: #d1d5db;
+            --accent-gold: #d4af37;
+            --accent-glow: rgba(212, 175, 55, 0.15);
+            --sfx-crimson: #ff2a2a;
+            --sfx-cyan: #00e5ff;
+            --thought-blue: #70a1ff;
+            --border-color: #1c212b;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-gold);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Dynamic Top Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+        }
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--accent-gold), var(--sfx-crimson));
+            width: 0%;
+            box-shadow: 0 0 10px var(--accent-gold);
+            transition: width 0.1s ease;
+        }
+
+        /* Top Navigation Header */
+        .reader-header {
+            width: 100%;
+            background: rgba(13, 15, 19, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            top: 4px;
+            z-index: 999;
+            padding: 12px 0;
+            text-align: center;
+        }
+        .reader-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            margin: 0;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+        }
+
+        /* Main Container */
+        .reader-container {
+            width: 100%;
+            max-width: 680px;
+            padding: 120px 20px 80px 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* Title Card Panel */
+        .title-card {
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 30px;
+            border-bottom: 2px double var(--border-color);
+        }
+        .title-card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 0;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px var(--accent-glow);
+        }
+        .title-card p {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: var(--accent-gold);
+            margin: 15px 0 0 0;
+        }
+
+        /* Manhwa Panel Framing */
+        .panel {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 35px 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+        }
+        .panel:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.05);
+        }
+
+        /* Narrative Text Paragraphs */
+        p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            margin: 1.2rem 0;
+            color: #b3b8c2;
+            word-break: keep-all;
+        }
+
+        /* Dialogue Box Styling */
+        .dialogue {
+            margin: 1.8rem 0;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent-gold);
+            position: relative;
+        }
+        .dialogue .speaker {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            margin-bottom: 5px;
+        }
+        .dialogue .quote {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Character Thought Styling */
+        .thought {
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--thought-blue);
+            background: rgba(112, 161, 255, 0.04);
+            border-left: 3px solid var(--thought-blue);
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        /* Webtoon Sound Effects (SFX) */
+        .sfx {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 2.8rem;
+            text-align: center;
+            margin: 45px 0;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transform: skewX(-10deg) rotate(-2deg);
+        }
+        .sfx.heavy {
+            color: var(--sfx-crimson);
+            text-shadow: 0 0 15px rgba(255, 42, 42, 0.6), 2px 2px 0px #000;
+        }
+        .sfx.motion {
+            color: var(--sfx-cyan);
+            text-shadow: 0 0 15px rgba(0, 229, 255, 0.6), 2px 2px 0px #000;
+        }
+        .sfx.impact {
+            font-size: 3.5rem;
+            color: #ffea00;
+            text-shadow: 0 0 25px rgba(255, 234, 0, 0.8), 3px 3px 0px #000;
+            animation: shake 0.5s infinite;
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        /* Action/Impact Screen Shake Effect */
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(0px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(2px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(2px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        /* Dynamic Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-color), transparent);
+            margin: 40px 0;
+        }
+
+        /* Bottom Footer */
+        .footer {
+            width: 100%;
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+            color: #4a5568;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Scroll Progress Tracker -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="reader-header">
+        <h1>Martial Arts Muscle Training</h1>
+    </header>
+
+    <!-- Reading Canvas -->
+    <main class="reader-container">
+        
+        <!-- Chapter Entrance -->
+        <section class="title-card">
+            <h2>Chapter 7</h2>
+            <p>The Pure Raw Strength</p>
+        </section>
+
+        <!-- Panel 1 -->
+        <div class="panel">
+            <p>Prefect Jang, who came down from the top of the tree, looked at Mumu with a slightly stiff face.</p>
+            <p>He, too, heard all the stories from the other officers as he went to inform the two of their exile ending.</p>
+            <p>It was said that Yu Yeop-kyung adopted a son.</p>
+            <p>But he was seventeen.</p>
+            <p>And his strength, which was too high for his age, wasn’t considered to be within the scope of ordinary people.</p>
+            <p>However, he never thought the kid would be able to jump to that height with pure physical strength.</p>
+
+            <div class="thought">
+                ‘At that, accurately in place…’
+            </div>
+
+            <p>He jumped.</p>
+            <p>Without help from anyone else.</p>
+            <p>Just how absurd was it?</p>
+            <p>Prefect Jang asked in a calm voice.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“How did you do that?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“I just jumped as high as I could.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“No. Not that what…”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“You can do it too if you train the soleus that forms the abdominal and gastrocnemius and triceps behind the shins.”</span>
+            </div>
+
+            <div class="thought">
+                ‘… triceps?’
+            </div>
+        </div>
+
+        <!-- Panel 2 -->
+        <div class="panel">
+            <p>Murim people had a deep understanding of the human body.</p>
+            <p>However, it was based on nerves, pulse, and flow.</p>
+            <p>Of course, he knew about the basic muscles, but this kid seemed to know everything about muscles in detail.</p>
+
+            <div class="thought">
+                ‘Training… he did well.’
+            </div>
+
+            <p>But was jumping that high something one can do by training?</p>
+            <p>Was it really possible?</p>
+            <p>Prefect Jang, who began to become confused, carefully and cautiously asked Mumu.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Mumu. Can I please touch your leg once?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“… that is unpleasant.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Woah. This mister is just doing it to check how much you trained those muscles.”</span>
+            </div>
+
+            <p>Mumu looked at him with suspicious eyes.</p>
+            <p>Mumu, who stared at him for a moment, opened his mouth.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Touching is weird, but I can show you.”</span>
+            </div>
+
+            <p>He casually rolled up his baggy pants,</p>
+            <p>And then showed his meticulously trained muscles to them.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Panel 3 -->
+        <div class="panel">
+            <div class="dialogue">
+                <span class="speaker">Officer</span>
+                <span class="quote">“Ohhh!”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Officer</span>
+                <span class="quote">“Mumu. Look at your legs.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Officer</span>
+                <span class="quote">“Oh my god, is that all muscle?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Officer</span>
+                <span class="quote">“Ho-How did you train to build muscles like that?”</span>
+            </div>
+
+            <p>The officers around were shocked at what they saw.</p>
+            <p>Prefect Jang was at a loss for words.</p>
+            <p>He knew that the kid trained a lot, but this was beyond common sense.</p>
+
+            <div class="thought">
+                ‘This kid… trained himself this much, all alone?’
+            </div>
+
+            <p>He knew that Mumu had been in exile since he was an infant.</p>
+            <p>And everything he learnt was from his father, Yu Yeop-kyung.</p>
+            <p>But there was no way that a scholar taught this. No scholar in the world would teach their kids how to train their muscles.</p>
+
+            <div class="thought">
+                ‘To do all that with pure raw strength…’
+            </div>
+
+            <p>Prefect Jang’s eyes changed.</p>
+            <p>Even if it was a little late to learn internal energy cultivation, it seemed like there was a possibility of honing martial arts if the body was as excellent as Mumu’s.</p>
+            <p>After leaving Murim to become an official, he never had such a desire.</p>
+            <p>Prefect Jang, who was struggling inside, looked at Mumu and asked with a kind smile.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Mumu. Do you know what non-human failure is?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Yes. My father did teach me, isn’t it supposed to be the absence of non-human qualities?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Yes. One shouldn’t pass down their teachings or talents to someone who doesn’t possess human characters, and shouldn’t allow talent or knowledge to take precedence over virtue.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Right.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“To this mister, our Mumu is a very filial son and has a clear personality.”</span>
+            </div>
+
+            <p>Mumu scratched his head as if he was embarrassed by the praise.</p>
+            <p>He had a lot of naïve aspects as he grew up with his father in the mountains.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“From what I heard earlier, it seems like you are interested in martial arts.”</span>
+            </div>
+
+            <p>“…”</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“It has been a long time since this mister decided to not accept a disciple who doesn’t have the spirit and virtue. But it seems like our Mumu is different. So if Mumu wants to learn martial arts, this mister will teach you, but you need to become my disciple…”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Thank you for that. But it’s okay.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Right. To be my disciple… what?”</span>
+            </div>
+        </div>
+
+        <!-- Panel 4 -->
+        <div class="panel">
+            <p>Is he okay?</p>
+            <p>He thought that Mumu would be thrilled to be his disciple.</p>
+            <p>But he spoke with a non-interested face and even waved his hand.</p>
+            <p>For a moment, Prefect Jang was flustered.</p>
+            <p>He invited him to become his disciple in front of the other officers, and he got rejected right away?</p>
+            <p>Frowning, he asked.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“You don’t want to learn martial arts?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“No. I was just curious.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Curious?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Yes. And now I think it would be more fun to just train my body.”</span>
+            </div>
+
+            <p>At Mumu’s words, Prefect Jang snorted.</p>
+            <p>The kid seemed to be misunderstanding something.</p>
+            <p>Martial arts, too, was an exercise to train the body.</p>
+            <p>Martial arts are an exercise that trains the mind and body, but it was conceived as an effective method to subdue and kill enemies while protecting oneself.</p>
+            <p>Maybe he should let the kid know.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Mumu. You seem to be misunderstanding something.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Misunderstanding?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Right. Martial arts isn’t just about training the mind and body.”</span>
+            </div>
+
+            <p>Mumu asked, puzzled.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Then?”</span>
+            </div>
+        </div>
+
+        <!-- Panel 5 -->
+        <div class="panel">
+            <p>Prefect Jang thought Mumu was interested, and he stood up.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“It can be said that martial arts are practiced to become strong.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“To become strong?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Right. For example, like this..”</span>
+            </div>
+
+            <span class="sfx heavy">Srrng!</span>
+
+            <p>Prefect Jang drew his sword from his waist.</p>
+            <p>And continued talking.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“The practice of training and wielding the sword developed to effectively deal with one’s enemy, and for that numerous sword techniques and styles were born.”</span>
+            </div>
+
+            <p>With those words, he swung his sword to show off.</p>
+            <p>Wouldn’t a boy that age be dying to hold something which would make him look cool?</p>
+            <p>If he showed his first-rate swordsmanship Mumu’s opinion might change.</p>
+
+            <span class="sfx motion">Sshh!</span>
+
+            <p>He showed the most colorful and bright technique he knew.</p>
+            <p>He jumped into the air and rotated his sword in several directions.</p>
+            <p>It was something called the <strong>Riot to Return to Heaven</strong>.</p>
+            <p>When it was done, all the officers gathered around clapped and cheered.</p>
+            <p>It was a very nice display in the eyes of ordinary people.</p>
+
+            <div class="thought">
+                ‘Do you feel the urge to learn now?’
+            </div>
+
+            <p>He looked at Mumu.</p>
+            <p>Mumu, too, was clapping with twinkling eyes.</p>
+            <p>Indeed, he liked it.</p>
+            <p>He approached Mumu and said,</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“How was that? Would you like to learn it now?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“No. I don’t think I’ll be able to learn that kind of thing with my shape.”</span>
+            </div>
+
+            <p>“…”</p>
+
+            <p>Why was he refusing?</p>
+            <p>Prefect Jang was slowly becoming frustrated.</p>
+            <p>Such opportunities didn’t come so easily.</p>
+            <p>Besides, he was a famous swordsman in the southern part of the Zhejiang province.</p>
+            <p>And he made several attempts to make Mumu his disciple, but the kid kept refusing.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Mumu.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Yes?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Don’t you want to be strong?”</span>
+            </div>
+
+            <p>Without hesitation, Mumu answered.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“I want to be strong.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Then learn martial arts from me. That way, even if bandits attack you like what happened five days ago, you will be able to protect yourself and your father more effectively.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“I don’t think it’s efficient, though.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“What?”</span>
+            </div>
+        </div>
+
+        <!-- Panel 6 -->
+        <div class="panel">
+            <p>At those words, Prefect Jang frowned.</p>
+            <p>He showed first-rate swordsmanship, but it didn’t seem to be effective? What type of bullshit is this?</p>
+            <p>It certainly had to be because he lived alone with his father in the mountains, but this was getting too childish.</p>
+            <p>Calming his anger and confusion, he opened his mouth.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Why do you think that it isn’t efficient?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Something like moving too much.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Too many movements?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“You can just swing it, cut it or stab it. I don’t understand why you have to move around, turn the sword, and make it look cool.”</span>
+            </div>
+
+            <p>“…”</p>
+
+            <p>If he hadn’t had a meal, it felt like Prefect Jang would be on the verge of passing out.</p>
+            <p>To dismiss everything he did as an attempt to look cool.</p>
+            <p>All of the technique’s movements were done to effectively counter the enemy’s attacks and at the same time target the opponent’s gaps.</p>
+
+            <div class="thought">
+                ‘Why am I feeling so frustrated?’
+            </div>
+
+            <p>Calm down.</p>
+            <p>The kid knows nothing.</p>
+            <p>Right, he was still in the beginner stage.</p>
+            <p>Yes, that’s a better way of thinking.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Mumu.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Yes.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“I think it’s highly possible that you misunderstood it. How about we do this?”</span>
+            </div>
+
+            <span class="sfx motion">Phat!</span>
+
+            <p>Prefect Jang jumped and broke a branch off a tree.</p>
+            <p>The length of the branch was the same as his sword.</p>
+            <p>Prefect Jang, who cut off the leaves and twigs on it, held it like he was gripping a sword and said,</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“I’ll show you why a technique is a technique.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Sorry?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Let’s have a match.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“What is a match?”</span>
+            </div>
+
+            <p>He really was a kid who knew nothing.</p>
+            <p>Right. Which was why he said all that with an innocent face.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“It means to compete with each other.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Compete?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Yes, it’s kind of like a mock battle to differentiate between winners and losers.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Ah. So you want to compete with me?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Uh… rather than that, I just wanted to let you know.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Let me know what?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“How it can be efficient.”</span>
+            </div>
+
+            <p>“Ah…”</p>
+
+            <p>Prefect Jang held the branch and was ready to unfold his technique.</p>
+            <p>And he motioned for Mumu to make the first move.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“This mister will only stop you. If your hand or foot can touch even a single hair on my body, you were right, and you don’t have to become my disciple. But if you lose, how about becoming the disciple of this mister?”</span>
+            </div>
+
+            <p>At that, Mumu looked interested.</p>
+            <p>Even if he wasn’t, he was bored because his father wasn’t paying attention to him lately.</p>
+            <p>So this bet seemed fun to him. He couldn’t help but be interested.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Once is enough?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Right.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Isn’t that too unfavorable for you?”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Huhuhu. It’s more disadvantageous for a person who hasn’t learned martial arts to compete with a first-rate warrior.”</span>
+            </div>
+
+            <p>Because the result was obvious.</p>
+            <p>If one didn’t learn martial arts, their movements would be full of gaps.</p>
+            <p>Even if Mumu’s strength was too high, it was nearly impossible to touch an opponent who was well aware of using a sword to defend themselves.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Okay. Then there is nothing else to say.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“You must keep your promise, Mumu.”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Mumu</span>
+                <span class="quote">“Yep!”</span>
+            </div>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Come on.”</span>
+            </div>
+
+            <p>Prefect Jang gestured.</p>
+            <p>And Mumu walked towards him.</p>
+            <p>It looked like he was trying to close the distance.</p>
+
+            <div class="thought">
+                ‘Then, let’s spread the distance a little.’
+            </div>
+
+            <p>He spread his footwork and tried to widen the distance.</p>
+            <p>That was when.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Panel 7 (Climax Panel) -->
+        <div class="panel">
+            <span class="sfx heavy">Pang!</span>
+
+            <p>The soil rose off the ground, and Mumu’s body flew right in front of him at the speed of an arrow.</p>
+
+            <div class="thought">
+                ‘No!’
+            </div>
+
+            <p>Mumu, who moved, extended his fist towards Jang.</p>
+            <p>He never expected the distance between him and Mumu to be closed in an instant, but Prefect Jang kept his cool and displayed splendid swordsmanship with the branch.</p>
+
+            <div class="thought">
+                ‘This is going to take a lot of strength, but nothing can be done.’
+            </div>
+
+            <p>He put strength in his hands.</p>
+            <p>Even if it was a tree branch, it would be a strong weapon if one knew how to use it.</p>
+            <p>The branch, which was acting as a sword, began to unfold a sword technique that would dig into Mumu’s wrist, head, chest, and abdomen.</p>
+            <p>However,</p>
+
+            <span class="sfx motion">Pak!</span>
+
+            <p>As soon as Mumu’s wrist was going to be touched by the branch, he extended his other hand and pulled the branch.</p>
+
+            <div class="thought">
+                ‘He caught this?’
+            </div>
+
+            <p>That couldn’t be.</p>
+            <p>A guy who wasn’t trained in martial arts could distinguish between a fluke attack and an actual attack?</p>
+            <p>Shocked, Prefect Jang decided to increase his strength, but.</p>
+
+            <div class="thought">
+                ‘W-What power!’
+            </div>
+
+            <p>He got dragged helplessly.</p>
+            <p>It was a nonsensical force that ignored his efforts.</p>
+            <p>Mumu’s left fist came towards Prefect Jang’s face, who was dragged towards him instantly.</p>
+
+            <span class="sfx impact">Puck!</span>
+
+            <div class="dialogue">
+                <span class="speaker">Prefect Jang</span>
+                <span class="quote">“Ugk!”</span>
+            </div>
+
+            <p>With a scream, his body bounced back and rolled ten steps away.</p>
+            <p>After he stopped rolling.</p>
+
+            <div class="dialogue">
+                <span class="speaker">Officers</span>
+                <span class="quote">“P-Prefect Jang!”</span>
+            </div>
+
+            <p>The officers who were watching with interest were startled at what they saw.</p>
+            <p>Then, seeing his unconscious face, they were at a loss for words.</p>
+
+            <div class="thought">
+                ‘How did this happen?’
+            </div>
+
+            <p>Prefect Jang had lost consciousness, he was bleeding from his nose, and his front teeth were broken.</p>
+        </div>
+
+        <!-- Footer Info -->
+        <footer class="footer">
+            <p>End of Chapter 7</p>
+            <p>© Mumu Reader. All rights reserved.</p>
+        </footer>
+
+    </main>
+
+    <!-- Scroll JavaScript -->
+    <script>
+        window.onscroll = function() { updateProgressBar() };
+
+        function updateProgressBar() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        }
+    </script>
+</body>
+</html>
