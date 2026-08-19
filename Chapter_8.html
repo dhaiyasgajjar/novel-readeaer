@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8 - Mumu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;600;700&family=Bangers&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0b10;
+            --panel-bg: #11131a;
+            --accent-primary: #ff5722;
+            --accent-secondary: #ffb300;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border-color: #2e3440;
+            
+            /* Character Theme Colors */
+            --color-mumu: #ff4500;
+            --color-yeopkyung: #48bb78;
+            --color-jikang: #4299e1;
+            --color-jang: #a0aec0;
+            --color-ilseo: #9f7aea;
+            --color-sister: #ed64a6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Top Bar Info */
+        .reader-header {
+            background: linear-gradient(180deg, rgba(17,19,26,1) 0%, rgba(10,11,16,0) 100%);
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .reader-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: var(--accent-secondary);
+            text-shadow: 0 0 10px rgba(255, 179, 0, 0.3);
+        }
+
+        /* Container designed to look like a webtoon/manhwa column */
+        .manhwa-scroll-container {
+            max-width: 680px;
+            margin: 80px auto 0 auto;
+            background-color: var(--panel-bg);
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+            padding: 60px 40px;
+            min-height: 100vh;
+        }
+
+        /* Chapter Banner */
+        .chapter-title-card {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 20px;
+            border-bottom: 2px double var(--border-color);
+        }
+
+        .chapter-num {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-primary);
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(255, 87, 34, 0.4);
+        }
+
+        .chapter-sub {
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Story Typography Elements */
+        .narrative {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            text-align: justify;
+            opacity: 0.95;
+        }
+
+        /* Monologue / Thought Bubble Style */
+        .thought {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            color: #a3b8cc;
+            background: rgba(163, 184, 204, 0.05);
+            border-left: 3px solid #64748b;
+            padding: 15px 20px;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Dialogue Box Style */
+        .dialogue-box {
+            position: relative;
+            margin: 2.5rem 0;
+            padding: 20px 25px;
+            background-color: rgba(10, 11, 16, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .dialogue-box:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .dialogue-box::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: -5px;
+            width: 10px;
+            height: 10px;
+            transform: rotate(45deg);
+            background-color: rgba(10, 11, 16, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .speaker-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .dialogue-text {
+            font-family: 'Lora', serif;
+            font-size: 1.15rem;
+            line-height: 1.6;
+        }
+
+        /* Character-specific styling */
+        .mumu-theme {
+            border-left: 4px solid var(--color-mumu);
+        }
+        .mumu-theme .speaker-tag { color: var(--color-mumu); }
+        .mumu-theme .dialogue-text { color: #fff8f5; }
+
+        .yeopkyung-theme {
+            border-left: 4px solid var(--color-yeopkyung);
+        }
+        .yeopkyung-theme .speaker-tag { color: var(--color-yeopkyung); }
+        .yeopkyung-theme .dialogue-text { color: #f2faf4; }
+
+        .jikang-theme {
+            border-left: 4px solid var(--color-jikang);
+        }
+        .jikang-theme .speaker-tag { color: var(--color-jikang); }
+        .jikang-theme .dialogue-text { color: #f0f7ff; }
+
+        .jang-theme {
+            border-left: 4px solid var(--color-jang);
+        }
+        .jang-theme .speaker-tag { color: var(--color-jang); }
+        .jang-theme .dialogue-text { color: #f7fafc; }
+
+        .ilseo-theme {
+            border-left: 4px solid var(--color-ilseo);
+        }
+        .ilseo-theme .speaker-tag { color: var(--color-ilseo); }
+        .ilseo-theme .dialogue-text { color: #faf5ff; }
+
+        .sister-theme {
+            border-left: 4px solid var(--color-sister);
+        }
+        .sister-theme .speaker-tag { color: var(--color-sister); }
+        .sister-theme .dialogue-text { color: #fff5f7; }
+
+        .generic-theme {
+            border-left: 4px solid var(--text-muted);
+        }
+        .generic-theme .speaker-tag { color: var(--text-muted); }
+
+        /* Dramatic Panel Breaks / Illustrative Markers */
+        .scene-divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .scene-divider::after {
+            content: '◆   ◆   ◆';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--panel-bg);
+            padding: 0 15px;
+            color: var(--border-color);
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+        }
+
+        /* Sound Effects (SFX) Stylized */
+        .sfx-container {
+            text-align: center;
+            margin: 35px 0;
+            perspective: 400px;
+        }
+
+        .sfx {
+            font-family: 'Bangers', cursive;
+            font-size: 3rem;
+            color: #f53f3f;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            text-shadow: 3px 3px 0px #2a0000, 
+                         -1px -1px 0px #fff, 
+                         1px -1px 0px #fff, 
+                         -1px 1px 0px #fff, 
+                         1px 1px 0px #fff;
+            transform: rotate(-5deg) scale(1);
+            animation: pulse-sfx 2s infinite alternate;
+        }
+
+        @keyframes pulse-sfx {
+            0% { transform: rotate(-5deg) scale(0.95); }
+            100% { transform: rotate(-3deg) scale(1.05); }
+        }
+
+        /* Manhwa panel borders visually simulated */
+        .comic-panel-frame {
+            border: 2px solid var(--border-color);
+            padding: 25px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        /* Footer styling */
+        .reader-footer {
+            text-align: center;
+            padding: 60px 20px 20px 20px;
+            border-top: 2px double var(--border-color);
+            margin-top: 60px;
+        }
+
+        .next-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, #d84315 100%);
+            color: white;
+            font-family: 'Cinzel', serif;
+            font-weight: 800;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            letter-spacing: 2px;
+            box-shadow: 0 5px 20px rgba(255, 87, 34, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 87, 34, 0.6);
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .manhwa-scroll-container {
+                padding: 40px 20px;
+                border-left: none;
+                border-right: none;
+            }
+            .chapter-num {
+                font-size: 2.2rem;
+            }
+            .narrative {
+                font-size: 0.95rem;
+            }
+            .dialogue-text {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-header">
+        <h1>MUMU — THE SENSELESS MONSTER</h1>
+    </div>
+
+    <div class="manhwa-scroll-container">
+        
+        <div class="chapter-title-card">
+            <div class="chapter-num">Chapter 8</div>
+            <div class="chapter-sub">The Journey & The Capital</div>
+        </div>
+
+        <div class="thought">
+            ‘… oh my.’
+        </div>
+
+        <p class="narrative">
+            Yu Yeop-kyung, who watched the scene from afar, covered his face with one hand.
+        </p>
+
+        <p class="narrative">
+            The two seemed to be doing something until his son knocked out the prefect.
+        </p>
+
+        <p class="narrative">
+            Yu Yeop-kyung was about to get up thinking about how to cover it, but Oh Ji-kang waved his hand, saying it was fine.
+        </p>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“Yu Hakjeong, it’s no big deal.”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“What’s no big deal! Prefect Jang just went flying.”</div>
+        </div>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“Hahaha. Prefect Jang is a master in martial arts. No matter how strong your child is, he isn’t the type who will be beaten so easily. Maybe he was just playing with Mumu.”</div>
+        </div>
+
+        <div class="thought">
+            ‘Playing? Hmm. Really?’
+        </div>
+
+        <p class="narrative">
+            It seemed like the officers near the prefect flocked to him.
+        </p>
+
+        <p class="narrative">
+            He was still shocked, but Oh Ji-kang didn’t care and changed the topic.
+        </p>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“Are you really okay with that? To pass by?”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“Is there something wrong with that? If you want to go and see them, there is no way I will refuse.”</div>
+        </div>
+
+        <p class="narrative">
+            In the sixth division, the Penal Division was in charge of executing sentences and other tasks related to prisoners.
+        </p>
+
+        <p class="narrative">
+            And the one in charge was the Minister of Criminal Affairs, and everything done was written down.
+        </p>
+
+        <p class="narrative">
+            Even though Yu Yeop-kyung was granted a special pardon for the nation’s sake, he couldn’t refuse the call of this man who was responsible for the implementation of exile.
+        </p>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“But I don’t know why I’m being called.”</div>
+        </div>
+
+        <p class="narrative">
+            Yu Yeop-kyung was confused.
+        </p>
+
+        <p class="narrative">
+            It had been more than 17 years since he went into exile because of that ‘incident.’
+        </p>
+
+        <p class="narrative">
+            From what he heard, a significant number of people in the political world had changed, and only a few people knew him.
+        </p>
+
+        <p class="narrative">
+            He couldn’t understand why they wanted to meet a mere sinner.
+        </p>
+
+        <div class="thought">
+            ‘Hm… actually, I can guess why.’
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“What do you mean?”</div>
+        </div>
+
+        <p class="narrative">
+            In response to Yu Yeop-kyung’s question, Oh Ji-kang said,
+        </p>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“I was going to tell you this when we reached our destination as a surprise, but I guess not anymore.”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“What do you mean?”</div>
+        </div>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“Maybe it’s because of your sons.”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“Sons? By any chance, did my kids do something?”</div>
+        </div>
+
+        <p class="narrative">
+            Yu Yeop-kyung asked anxiously.
+        </p>
+
+        <p class="narrative">
+            He had two sons whom he hadn’t met in a long time.
+        </p>
+
+        <p class="narrative">
+            The first must be an adult by now, and the second one had to be the same age as Mumu.
+        </p>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“Ah, don’t jump to conclusions. It isn’t that.”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“Then?”</div>
+        </div>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“You have wonderful sons.”</div>
+        </div>
+
+        <p class="narrative">
+            At those words, Yu Yeop-kyung couldn’t understand.
+        </p>
+
+        <p class="narrative">
+            Then, Oh Ji-kang spoke with a smile.
+        </p>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“The first one graduated from Heavenly Martial Arts Academy in second place and was appointed as the 7th inspection censor (Imperial inspection censor, directly under the Imperial family, has access to every record and document).”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“W-What?”</div>
+        </div>
+
+        <p class="narrative">
+            Yu Yeop-kyung was confused.
+        </p>
+
+        <p class="narrative">
+            If it meant inspection censor, then it had to be at the inspection agency of the Imperial city.
+        </p>
+
+        <p class="narrative">
+            The inspection agency performed administrative duties and audits. They enjoyed more authority than others.
+        </p>
+
+        <p class="narrative">
+            Being an inspection censor of the Imperial city was a great job.
+        </p>
+
+        <div class="thought">
+            ‘He’s living the dream.’
+        </div>
+
+        <p class="narrative">
+            That made even the Hakjeong jealous.
+        </p>
+
+        <p class="narrative">
+            And from a family with one of its members in exile, a high-ranking official came out.
+        </p>
+
+        <p class="narrative">
+            It was shocking but even more incomprehensible.
+        </p>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“Are you pulling my leg? How can a member of a family with one of its members in exile be appointed for that role?”</div>
+        </div>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“Ahh. Naturally, you don’t understand.”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“What are you even saying?”</div>
+        </div>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“I don't know how to explain this… ah! Do you remember the Heavenly Martial Arts Academy I mentioned earlier?”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“I do. You mentioned that when you were talking about the first kid? What is that place?”</div>
+        </div>
+
+        <p class="narrative">
+            It was his first time hearing that name.
+        </p>
+
+        <p class="narrative">
+            When he was free, he never heard of such an academy.
+        </p>
+
+        <p class="narrative">
+            Judging by its name, it didn’t seem like a scholar academy. Instead, it seemed like a martial arts academy.
+        </p>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“Yu Hakjeong. By any chance, do you remember the Ungpae Association?”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“If I recall correctly, that was the vicious group of martial artists which threatened the Imperial palace and said they would conquer the entire central lands, right?”</div>
+        </div>
+
+        <p class="narrative">
+            At that time, the Ungpae was starting out.
+        </p>
+
+        <p class="narrative">
+            And most people who were known to have connections with them were declared criminals and exiled.
+        </p>
+
+        <p class="narrative">
+            Even Yu Yeop-kyung, who knew almost nothing about Murim, knew how many people the Ungpae Association had instilled fear in.
+        </p>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“But what about them?”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“Do you know who defeated them?”</div>
+        </div>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“Wasn’t that… the Four Great Warriors?”</div>
+        </div>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“Yes. And the Heavenly Martial Arts Academy was founded by two of the four.”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“So what if one graduated from there?”</div>
+        </div>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“Well, one of the four is a member of the Imperial family.”</div>
+        </div>
+
+        <p class="narrative">
+            At that, he was shocked.
+        </p>
+
+        <p class="narrative">
+            As he was in exile, there was no way he got that information.
+        </p>
+
+        <p class="narrative">
+            Moreover, he wasn’t even interested in the Murim family.
+        </p>
+
+        <div class="thought">
+            ‘Imperial famil…’
+        </div>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“Shockingly, one was a member of the Imperial family and is called the Southern Sword Hwang-suk as he was one of the great warriors in Murim. And he founded it together with the Fist of the Northern Star.”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“Huh. I see.”</div>
+        </div>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“The Imperial family and the government recognized the achievements of the Four Warriors, and one of them was the Southern Sword Hwang-suk who saved the land from the Ungpae Association. And only those who have graduated from the Heavenly Martial Arts Academy of theirs are given the posts of Soldiers, Imperial Guards, and posts within the policing department.”</div>
+        </div>
+
+        <p class="narrative">
+            Yu Yeop-kyung, who was unaware of it, was shocked.
+        </p>
+
+        <p class="narrative">
+            So in such a way, even Murim people were given a chance to serve.
+        </p>
+
+        <p class="narrative">
+            At one time, the Imperial family and Murim didn’t get along.
+        </p>
+
+        <p class="narrative">
+            But he had one question.
+        </p>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“But is that possible for a child of a criminal who was exiled?”</div>
+        </div>
+
+        <p class="narrative">
+            It wasn’t like it was something that could be overlooked.
+        </p>
+
+        <p class="narrative">
+            And they were close relations.
+        </p>
+
+        <p class="narrative">
+            At that, Oh Ji-kang smiled.
+        </p>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“Yu Hakjeong. Even His Majesty calls him Hwang-suk, and he favors and respects the man. That is why he declared that he would give anyone a chance regardless of past history and age.”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“Ah!”</div>
+        </div>
+
+        <p class="narrative">
+            At those words, Yu Yeop-kyung exclaimed.
+        </p>
+
+        <p class="narrative">
+            If those words were true, then his son had completed his study at the Heavenly Martial Arts Academy in second place and was appointed to a provincial office.
+        </p>
+
+        <p class="narrative">
+            He couldn’t be happier than he was now.
+        </p>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“Are you crying?”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“Ah, no! Embers flew into my eyes.”</div>
+        </div>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“If it’s embers, you’ll turn blind.”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“Can we just drop this?”</div>
+        </div>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“Hahaha. If I left exile and learned that my family had grown up and worked hard, I would shed tears too.”</div>
+        </div>
+
+        <p class="narrative">
+            Yu Yeop-kyung wiped his tears with the back of his hand.
+        </p>
+
+        <p class="narrative">
+            Who would have thought that such a joyous thing would happen?
+        </p>
+
+        <p class="narrative">
+            But then, he suddenly thought.
+        </p>
+
+        <div class="thought">
+            ‘How did he get into that academy?’
+        </div>
+
+        <p class="narrative">
+            When he left, the kid was only four years old.
+        </p>
+
+        <p class="narrative">
+            And his family had been scholars for generations.
+        </p>
+
+        <p class="narrative">
+            He wondered what kind of connections had to be used to get the kid in there.
+        </p>
+
+        <p class="narrative">
+            Besides, if he was in second place, there must have been a lot of competition.
+        </p>
+
+        <div class="thought">
+            ‘What all happened?’
+        </div>
+
+        <p class="narrative">
+            It seemed like he would know shortly.
+        </p>
+
+        <p class="narrative">
+            The second question was.
+        </p>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“So you meant that the Head of Criminal Affairs called me because my eldest son was given an official post?”</div>
+        </div>
+
+        <div class="dialogue-box jikang-theme">
+            <span class="speaker-tag">Oh Ji-kang</span>
+            <div class="dialogue-text">“That’s what I think. I heard that he is trying to get another son into the same academy. Maybe it has something to do with that?”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“Another son…”</div>
+        </div>
+
+        <p class="narrative">
+            Somehow, the words felt strange.
+        </p>
+
+        <div class="scene-divider"></div>
+
+        <p class="narrative">
+            After that, it took a fortnight to arrive.
+        </p>
+
+        <p class="narrative">
+            During that time, Mumu couldn’t use the training tools he kept secret as his father was keeping an eye on him.
+        </p>
+
+        <p class="narrative">
+            And Mumu was losing his mind, so now he would usually train his body to its limits by doing things like 10,000 push-ups or 1000 squats at night.
+        </p>
+
+        <div class="thought">
+            ‘Ha…’
+        </div>
+
+        <p class="narrative">
+            And Prefect Jang, who kept an eye on him, bit his tongue.
+        </p>
+
+        <p class="narrative">
+            Once he was conscious, he was unable to say anything to Mumu.
+        </p>
+
+        <p class="narrative">
+            The biggest reason was that his front teeth fell out.
+        </p>
+
+        <p class="narrative">
+            He had to keep his mouth shut the whole time so that the others didn’t see and laugh.
+        </p>
+
+        <div class="thought">
+            ‘How is his body like that?’
+        </div>
+
+        <p class="narrative">
+            He watched Mumu over and over again.
+        </p>
+
+        <p class="narrative">
+            The training method was too extreme and full of things that he would be unable to do.
+        </p>
+
+        <p class="narrative">
+            It was amazing that Mumu was doing it with just his body.
+        </p>
+
+        <div class="thought">
+            ‘… with just his strength, he overcame me.’
+        </div>
+
+        <p class="narrative">
+            That was a shock.
+        </p>
+
+        <p class="narrative">
+            While the prefect was struggling in the battle, he got dragged by Mumu.
+        </p>
+
+        <p class="narrative">
+            He wanted to know just how Mumu created his body, but the opportunity passed.
+        </p>
+
+        <p class="narrative">
+            The officers waved their hands to Mumu and said goodbye.
+        </p>
+
+        <div class="dialogue-box generic-theme">
+            <span class="speaker-tag">Officers</span>
+            <div class="dialogue-text">“Mumu. Take care.”</div>
+        </div>
+
+        <div class="dialogue-box generic-theme">
+            <span class="speaker-tag">Officers</span>
+            <div class="dialogue-text">“If there is ever a chance, let’s meet!”</div>
+        </div>
+
+        <div class="dialogue-box generic-theme">
+            <span class="speaker-tag">Officers</span>
+            <div class="dialogue-text">“Don’t forget us!”</div>
+        </div>
+
+        <div class="dialogue-box mumu-theme">
+            <span class="speaker-tag">Mumu</span>
+            <div class="dialogue-text">“Yes, yes. I will surely come to play with you!”</div>
+        </div>
+
+        <p class="narrative">
+            Mumu also bowed his head and thanked them.
+        </p>
+
+        <p class="narrative">
+            The mission of Prefect Jang and the other officers was done.
+        </p>
+
+        <p class="narrative">
+            Now that they arrived at the end of their mission, they had to head back to their province.
+        </p>
+
+        <p class="narrative">
+            As everyone was about to leave, Prefect Jang approached Mumu and gave him something.
+        </p>
+
+        <p class="narrative">
+            A finely folded paper.
+        </p>
+
+        <div class="dialogue-box jang-theme">
+            <span class="speaker-tag">Prefect Jang</span>
+            <div class="dialogue-text">“Mumu. We made a promise back then, but this is a simple gift from this Mister.”</div>
+        </div>
+
+        <div class="dialogue-box mumu-theme">
+            <span class="speaker-tag">Mumu</span>
+            <div class="dialogue-text">“What is this?”</div>
+        </div>
+
+        <div class="dialogue-box jang-theme">
+            <span class="speaker-tag">Prefect Jang</span>
+            <div class="dialogue-text">“If you have any interest in martial arts in the future, then open this paper. Okay then, until next time.”</div>
+        </div>
+
+        <p class="narrative">
+            With those words, he left.
+        </p>
+
+        <p class="narrative">
+            In his heart, he wanted to open the paper and see what was in it.
+        </p>
+
+        <p class="narrative">
+            He was curious about what happened in the martial arts world and wondered if people who were physically trained could even learn martial arts.
+        </p>
+
+        <p class="narrative">
+            Of course, there was also a desire to just continue with his own way.
+        </p>
+
+        <p class="narrative">
+            Mumu looked at the paper once again and shoved it into his sleeve as if he had no interest.
+        </p>
+
+        <p class="narrative">
+            And Mumu followed his father and the man Oh Ji-kang.
+        </p>
+
+        <p class="narrative">
+            Mumu looked around at the bustling streets for the first time in his life, the stylish houses made of tiles, the stores, everything.
+        </p>
+
+        <div class="dialogue-box mumu-theme">
+            <span class="speaker-tag">Mumu</span>
+            <div class="dialogue-text">“Father, look there.”</div>
+        </div>
+
+        <div class="dialogue-box mumu-theme">
+            <span class="speaker-tag">Mumu</span>
+            <div class="dialogue-text">“Doesn’t that look delicious?”</div>
+        </div>
+
+        <div class="dialogue-box mumu-theme">
+            <span class="speaker-tag">Mumu</span>
+            <div class="dialogue-text">“Are those pretty people in skirts all women?”</div>
+        </div>
+
+        <p class="narrative">
+            Yu Yeop-kyung looked at his son in joy.
+        </p>
+
+        <p class="narrative">
+            Since the child was confined to mountains, he was glad that Mumu was finally looking at the real world.
+        </p>
+
+        <p class="narrative">
+            After moving, they stopped at a place.
+        </p>
+
+        <div class="dialogue-box mumu-theme">
+            <span class="speaker-tag">Mumu</span>
+            <div class="dialogue-text">“Woah!”</div>
+        </div>
+
+        <p class="narrative">
+            Mumu exclaimed as he looked at the wall and the entrance, which was incomparable to the other houses.
+        </p>
+
+        <p class="narrative">
+            The manor where the Head of Criminal Affairs lived.
+        </p>
+
+        <p class="narrative">
+            When Oh Ji-kang said something to the one guarding the entrance, they went inside, and then someone came out of the manor.
+        </p>
+
+        <div class="dialogue-box generic-theme">
+            <span class="speaker-tag">Butler</span>
+            <div class="dialogue-text">“Welcome. Even though it doesn’t look like it, the Master was waiting for you.”</div>
+        </div>
+
+        <p class="narrative">
+            With that, they entered.
+        </p>
+
+        <p class="narrative">
+            Although it looked gorgeous on the outside, the inside was even more splendid.
+        </p>
+
+        <p class="narrative">
+            From the pond in the middle of the yard to the flower bed full of colorful plants.
+        </p>
+
+        <p class="narrative">
+            When they finally arrived near the building, the butler said.
+        </p>
+
+        <div class="dialogue-box generic-theme">
+            <span class="speaker-tag">Butler</span>
+            <div class="dialogue-text">“Is this man the son of Yu Hakjeong?”</div>
+        </div>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“Ah. Yes.”</div>
+        </div>
+
+        <p class="narrative">
+            At that, the butler nodded.
+        </p>
+
+        <div class="dialogue-box generic-theme">
+            <span class="speaker-tag">Butler</span>
+            <div class="dialogue-text">“However, the Master said that he would only see the two of you, so I think your son will have to wait outside.”</div>
+        </div>
+
+        <p class="narrative">
+            Yu Yeop-kyung was puzzled by it but told Mumu,
+        </p>
+
+        <div class="dialogue-box yeopkyung-theme">
+            <span class="speaker-tag">Yu Yeop-kyung</span>
+            <div class="dialogue-text">“Please wait here patiently by looking at the pond. I will go meet him and come back.”</div>
+        </div>
+
+        <div class="dialogue-box mumu-theme">
+            <span class="speaker-tag">Mumu</span>
+            <div class="dialogue-text">“Yes.”</div>
+        </div>
+
+        <p class="narrative">
+            With that, Yu Yeop-kyung and Oh Ji-kang went up.
+        </p>
+
+        <p class="narrative">
+            Meanwhile, Mumu was looking at the pond in the yard.
+        </p>
+
+        <p class="narrative">
+            There were different colored carp in the pond, which he had never seen in the mountains.
+        </p>
+
+        <p class="narrative">
+            Two people were watching him.
+        </p>
+
+        <div class="dialogue-box ilseo-theme">
+            <span class="speaker-tag">Mo Il-seo</span>
+            <div class="dialogue-text">“Look at that one.”</div>
+        </div>
+
+        <p class="narrative">
+            A boy with a slightly droopy but tall look, standing next to the pillar on the right side of the building, said while pointing to Mumu.
+        </p>
+
+        <p class="narrative">
+            The girl with pretty eyes next to him answered with a dazed face.
+        </p>
+
+        <div class="dialogue-box sister-theme">
+            <span class="speaker-tag">Sister</span>
+            <div class="dialogue-text">“… looks handsome.”</div>
+        </div>
+
+        <div class="dialogue-box ilseo-theme">
+            <span class="speaker-tag">Mo Il-seo</span>
+            <div class="dialogue-text">“That one is handsome? He looks like a sissy.”</div>
+        </div>
+
+        <div class="dialogue-box sister-theme">
+            <span class="speaker-tag">Sister</span>
+            <div class="dialogue-text">“He definitely looks better than my brother.”</div>
+        </div>
+
+        <div class="dialogue-box ilseo-theme">
+            <span class="speaker-tag">Mo Il-seo</span>
+            <div class="dialogue-text">“What?”</div>
+        </div>
+
+        <p class="narrative">
+            His body expressed his displeasure at the girl’s comment.
+        </p>
+
+        <p class="narrative">
+            He was a proud person, and when she said that Mumu looked better, he didn’t like it.
+        </p>
+
+        <p class="narrative">
+            He looked at Mumu and said,
+        </p>
+
+        <div class="dialogue-box ilseo-theme">
+            <span class="speaker-tag">Mo Il-seo</span>
+            <div class="dialogue-text">“Will he be like Yu Jin-sung?”</div>
+        </div>
+
+        <div class="dialogue-box sister-theme">
+            <span class="speaker-tag">Sister</span>
+            <div class="dialogue-text">“Rumors say that he might be as talented as his older brother, so wouldn’t he be the best?”</div>
+        </div>
+
+        <div class="dialogue-box ilseo-theme">
+            <span class="speaker-tag">Mo Il-seo</span>
+            <div class="dialogue-text">“I don’t know. Maybe it’s an exaggerated rumor.”</div>
+        </div>
+
+        <div class="dialogue-box sister-theme">
+            <span class="speaker-tag">Sister</span>
+            <div class="dialogue-text">“Are you jealous?”</div>
+        </div>
+
+        <div class="dialogue-box ilseo-theme">
+            <span class="speaker-tag">Mo Il-seo</span>
+            <div class="dialogue-text">“Jealous? Haha. This brother will never be wary of such a guy. Let’s test how good he is.”</div>
+        </div>
+
+        <p class="narrative">
+            With those words, the boy stepped forward.
+        </p>
+
+        <div class="dialogue-box sister-theme">
+            <span class="speaker-tag">Sister</span>
+            <div class="dialogue-text">“Wait a minute, brother!”</div>
+        </div>
+
+        <p class="narrative">
+            The girl tried to stop him, but he was already heading over to where Mumu was.
+        </p>
+
+        <p class="narrative">
+            The boy, who strode closer to him, said.
+        </p>
+
+        <div class="dialogue-box ilseo-theme">
+            <span class="speaker-tag">Mo Il-seo</span>
+            <div class="dialogue-text">“Look here.”</div>
+        </div>
+
+        <div class="dialogue-box mumu-theme">
+            <span class="speaker-tag">Mumu</span>
+            <div class="dialogue-text">“Huh?”</div>
+        </div>
+
+        <p class="narrative">
+            Mumu, who was busy looking at the carp, turned his head.
+        </p>
+
+        <p class="narrative">
+            The boy stretched out his hand and said.
+        </p>
+
+        <div class="dialogue-box ilseo-theme">
+            <span class="speaker-tag">Mo Il-seo</span>
+            <div class="dialogue-text">“Nice to meet you. Are you the son of Yu Hakjeong? I’m Mo Il-seo of this house.”</div>
+        </div>
+
+        <div class="dialogue-box mumu-theme">
+            <span class="speaker-tag">Mumu</span>
+            <div class="dialogue-text">“Huh?”</div>
+        </div>
+
+        <p class="narrative">
+            At Mumu’s question, the boy frowned a little.
+        </p>
+
+        <p class="narrative">
+            If this kid was the son of the Yu family, then he would immediately know who he was, but why was this one in front of him looking so confused and innocent?
+        </p>
+
+        <p class="narrative">
+            Actually, it was Mumu’s first time meeting someone close to his age.
+        </p>
+
+        <div class="dialogue-box ilseo-theme">
+            <span class="speaker-tag">Mo Il-seo</span>
+            <div class="dialogue-text">“Why are you extending your hand?”</div>
+        </div>
+
+        <div class="dialogue-box mumu-theme">
+            <span class="speaker-tag">Mumu</span>
+            <div class="dialogue-text">“I heard that it’s a popular handshake in the Imperial palace, didn't you know?”</div>
+        </div>
+
+        <div class="dialogue-box ilseo-theme">
+            <span class="speaker-tag">Mo Il-seo</span>
+            <div class="dialogue-text">“Handshake?”</div>
+        </div>
+
+        <div class="dialogue-box mumu-theme">
+            <span class="speaker-tag">Mumu</span>
+            <div class="dialogue-text">“It’s a greeting that westerners do. They meet and shake hands like this.”</div>
+        </div>
+
+        <div class="dialogue-box ilseo-theme">
+            <span class="speaker-tag">Mo Il-seo</span>
+            <div class="dialogue-text">“Is that so?”</div>
+        </div>
+
+        <div class="dialogue-box mumu-theme">
+            <span class="speaker-tag">Mumu</span>
+            <div class="dialogue-text">“Are you going to avoid my hand?”</div>
+        </div>
+
+        <p class="narrative">
+            Mumu reached out at the words of Mo Il-seo.
+        </p>
+
+        <p class="narrative">
+            Mo Il-seo’s eyes twinkled at it.
+        </p>
+
+        <p class="narrative">
+            He was using the handshake to test the kid.
+        </p>
+
+        <div class="thought">
+            ‘This Mo Il-seo will check how good you are.’
+        </div>
+
+        <div class="sfx-container">
+            <span class="sfx">GRAB!</span>
+        </div>
+
+        <p class="narrative">
+            Mo Il-seo, held the hand.
+        </p>
+
+        <p class="narrative">
+            He, who was trained, raised his internal energy and focused it in his hand.
+        </p>
+
+        <p class="narrative">
+            At once, he raised the level eightfold and continued giving strength to his hand.
+        </p>
+
+        <p class="narrative">
+            However,
+        </p>
+
+        <div class="thought">
+            ‘Oh?’
+        </div>
+
+        <p class="narrative">
+            He was applying force with his hand, but the guy was looking at him blankly.
+        </p>
+
+        <p class="narrative">
+            Naturally, he thought that the man would struggle or fight back.
+        </p>
+
+        <p class="narrative">
+            In that case, he thought he would find the difference between them, but what’s with the weird reaction?
+        </p>
+
+        <p class="narrative">
+            Mumu spoke then.
+        </p>
+
+        <div class="dialogue-box mumu-theme">
+            <span class="speaker-tag">Mumu</span>
+            <div class="dialogue-text">“Is this where we put strength into our hands?”</div>
+        </div>
+
+        <div class="dialogue-box ilseo-theme">
+            <span class="speaker-tag">Mo Il-seo</span>
+            <div class="dialogue-text">“Huh? That, yes.”</div>
+        </div>
+
+        <div class="dialogue-box mumu-theme">
+            <span class="speaker-tag">Mumu</span>
+            <div class="dialogue-text">“Like this?”</div>
+        </div>
+
+        <p class="narrative">
+            With that, thick muscles bulged on the back of Mumu’s hand.
+        </p>
+
+        <div class="sfx-container">
+            <span class="sfx" style="color: #ffb300;">CRACK!</span>
+        </div>
+
+        <div class="dialogue-box ilseo-theme">
+            <span class="speaker-tag">Mo Il-seo</span>
+            <div class="dialogue-text">“Kuak!”</div>
+        </div>
+
+        <p class="narrative">
+            At that moment, Mo Il-seo’s body twisted in pain.
+        </p>
+
+        <div class="reader-footer">
+            <a href="#" class="next-btn">Next Chapter</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
