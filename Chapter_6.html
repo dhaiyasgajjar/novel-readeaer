@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 6</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Caveat:wght@400;700&family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700;900&family=Permanent+Marker&display=swap');
+        :root { --bg-color: #1a1a1a; --text-color: #e5e7eb; --thought-bg: #2d3748; --dialogue-bg: #2d2d2d; --sfx-color: #f87171; --accent-gold: #fbbf24; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Nunito', sans-serif; max-width: 700px; margin: 0 auto; padding: 40px 20px; line-height: 1.7; font-size: 19px; }
+        .location { font-family: 'Permanent Marker', cursive; text-align: center; color: var(--accent-gold); font-size: 1.5em; margin: 60px 0 40px 0; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .sfx { font-family: 'Bangers', system-ui; font-size: 3.5em; color: var(--sfx-color); text-align: center; margin: 40px 0; letter-spacing: 3px; text-shadow: 3px 3px 0px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; transform: rotate(-2deg); }
+        .thought { font-family: 'Caveat', cursive; font-size: 1.6em; background-color: var(--thought-bg); border-left: 5px solid #a78bfa; padding: 15px 25px; margin: 25px 10%; color: #ddd6fe; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .narrator { font-family: 'Nunito', sans-serif; margin: 25px 0; color: #9ca3af; text-align: justify; }
+        .dialogue { font-family: 'Comic Neue', cursive; font-weight: 700; background-color: var(--dialogue-bg); border-radius: 15px; padding: 20px; margin: 25px 0; position: relative; box-shadow: 0 4px 8px rgba(0,0,0,0.4); font-size: 1.2em; }
+        .dialogue::after { content: ''; position: absolute; width: 0; height: 0; border: 15px solid transparent; }
+        .dialogue .name { font-family: 'Nunito', sans-serif; font-weight: 900; margin-bottom: 8px; display: block; text-transform: uppercase; font-size: 0.8em; letter-spacing: 1.5px; opacity: 0.8; }
+        .mumu { border: 2px solid #10b981; margin-left: 10%; }
+        .mumu::after { border-top-color: #10b981; border-bottom: 0; border-right: 0; bottom: -15px; left: 20px; }
+        .mumu .name { color: #34d399; }
+        .father { border: 2px solid #3b82f6; margin-right: 10%; }
+        .father::after { border-top-color: #3b82f6; border-bottom: 0; border-left: 0; bottom: -15px; right: 20px; }
+        .father .name { color: #93c5fd; }
+        .divider { text-align: center; color: #4b5563; margin: 60px 0; font-size: 1.5em; letter-spacing: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="location">CHAPTER 6</div>
+
+    <div class="narrator">Unable to get any clues about the man who turned everyone into squash, Prefect Jang had to return to the house, where the exiled man was.</div>
+
+    <div class="narrator">It was difficult to associate the clue given to any warrior.</div>
+
+    <div class="narrator">But what was certain is that the threat from the bandits had disappeared since the entire group was annihilated.</div>
+
+    <div class="narrator">As soon as Prefect Jang arrived, he went to report it to Oh Ji-kang.</div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “Wh-really?”
+    </div>
+
+    <div class="dialogue prefect_jang">
+        <span class="name">Prefect Jang</span>
+        “That’s right. It was coincidental, but we can just call it luck.”
+    </div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “This seems to be because of the merit and luck that Yu Hakjeong accumulated. Hahaha.”
+    </div>
+
+    <div class="narrator">Oh Ji-kang said happily.</div>
+
+    <div class="narrator">At those words, Yu Yeop-kyung sighed in relief.</div>
+
+    <div class="narrator">However, there was one thing he was concerned about.</div>
+
+    <div class="narrator">He turned his head and looked at his adopted son, Mumu.</div>
+
+    <div class="sfx">CLAP! CLAP!</div>
+
+    <div class="narrator">Mumu was applauding by saying that it went well.</div>
+
+    <div class="narrator">Looking at that, Yu Yeop-kyung thought that something was wrong.</div>
+
+    <div class="thought">‘… he has the bands on, so there is no way he could have done it.’</div>
+
+    <div class="narrator">It was impossible to guess how strong Mumu was.</div>
+
+    <div class="narrator">However, he thought that he couldn’t do such a nonsensical thing even if his suppressed power was released.</div>
+
+    <div class="narrator">But then, the sight of him uprooting a tree and throwing it came into his mind.</div>
+
+    <div class="narrator">He was in denial, yet he was concerned.</div>
+
+    <div class="dialogue prefect_jang">
+        <span class="name">Prefect Jang</span>
+        “Chief Oh. If there is a great warrior out there, who is reluctant to get exposed, then we could be at risk too.”
+    </div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “We have you on our side, Prefect Jang.”
+    </div>
+
+    <div class="dialogue prefect_jang">
+        <span class="name">Prefect Jang</span>
+        “I, too, will be defeated in front of such a man. The opponent is someone who destroyed the base of the bandits with his bare hands.”
+    </div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “Huh.”
+    </div>
+
+    <div class="narrator">If the man was giving such a strong warning, it meant that they had to listen.</div>
+
+    <div class="narrator">But before they departed, there was one thing they had to do.</div>
+
+    <div class="narrator">Oh Ji-kang waited for this day.</div>
+
+    <div class="narrator">He wanted to tell Yu Yeop-kyung, who was naïve and virtuous enough to raise an abandoned child even after being exiled, the good news only he could deliver.</div>
+
+    <div class="narrator">He pulled something out.</div>
+
+    <div class="narrator">Yu Yeop-kyung’s eyes widened at that thing.</div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “Chief Oh. Th-That is?”
+    </div>
+
+    <div class="narrator">A scroll of ornate patterns tied with a gold thread.</div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “Yes.”
+    </div>
+
+    <div class="narrator">Chief Oh nodded.</div>
+
+    <div class="narrator">It was a scroll on which the orders of His Majesty, the emperor, were written.</div>
+
+    <div class="narrator">Oh Ji-kang opened the scroll and, with a solemn voice, began to read it.</div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “May this bring glory upon you.”
+    </div>
+
+    <div class="sfx">THUD!</div>
+
+    <div class="narrator">As soon as those words were spoken, everyone fell flat on the floor, including Prefect Jang. Yu Yeop-kyung, who was injured, knelt too.</div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “From the Emperor.”
+    </div>
+
+    <div class="narrator">The only one who didn't was Mumu.</div>
+
+    <div class="narrator">Yu Yeop-kyung scolded his son in a hushed voice.</div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “Mumu, get down.”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Why?”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “Everyone should bow in front of the imperial order.”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Ah… imperial order.”
+    </div>
+
+    <div class="narrator">Mumu, too, knelt.</div>
+
+    <div class="narrator">Then, Oh Ji-kang continued.</div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “Since a new nation has been brought into the Great Empire, how could we not celebrate this occasion! I will reduce this year’s taxes, and those who committed crimes will be pardoned, considering the severity.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “Ahh!”
+    </div>
+
+    <div class="narrator">Yu Yeop-kyung’s voice trembled.</div>
+
+    <div class="narrator">Although it was for the growth of the empire, he was being pardoned.</div>
+
+    <div class="narrator">He couldn’t contain his joy as he had waited for this day to come for so long.</div>
+
+    <div class="narrator">The day when he could finally return to his hometown and see his family.</div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “I will follow the orders of His Majesty, the Emperor.”
+    </div>
+
+    <div class="narrator">He said that as Oh Ji-kang rolled up the scroll.</div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “The order is done, so get up.”
+    </div>
+
+    <div class="narrator">At those words, everyone rose.</div>
+
+    <div class="narrator">Oh Ji-kang congratulated Yu Yeop-kyung, who was staggering.</div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “I congratulate you, Yu Hakjeong.”
+    </div>
+
+    <div class="narrator">Yu Yeop-kyung was still in shock at what he heard.</div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “Chief Oh. Who was given the imperial order?”
+    </div>
+
+    <div class="narrator">It was impossible for a low chief to be given it. If so, did Prefect Jang bring it? They would hand it to someone higher than a prefect and pass it down, even if that was true.</div>
+
+    <div class="narrator">At that, Oh Ji-kang spoke.</div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “I apologize. I didn’t mean to deceive you, but I just couldn’t tell you. There was never a situation where I could just come out and inform you.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “By any chance… you are?”
+    </div>
+
+    <div class="narrator">Yu Yeop-kyung considered the man to be an official.</div>
+
+    <div class="narrator">Oh Ji-kang smiled and said,</div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “You can speak comfortably.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “How can I, who lost an official position, speak informally to an official?”
+    </div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “Please, I hope that you will speak comfortably out of consideration for the friendship we have built over the years.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “Huh. May I ask who you truly are?”
+    </div>
+
+    <div class="narrator">Yu Yeop-kyung didn’t refuse the request to be on friendly terms.</div>
+
+    <div class="narrator">At Yu Yeop-kyung’s question, Oh Ji-kang took out a wooden plate from his arms and showed it to him. <br><br>On it was written:<br><strong>Judicial Division of Punishment<br>4th rank officer, deputy Oh Ji-kang</strong></div>
+
+    <div class="narrator">Seeing that, Yu Yeop-kyung’s eyes widened.</div>
+
+    <div class="narrator">It was the Judicial Division. It was an institution of the empire that governed the province. And when it came to being a deputy in the institution, it could be said that he was second-in-command and directly under the main division.</div>
+
+    <div class="narrator">He thought that Oh Ji-kang would be an official, but he was shocked when he realized that the man was a high-ranking official.</div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “Then, you weren’t a chief?”
+    </div>
+
+    <div class="narrator">There was no way he could speak comfortably to the man.</div>
+
+    <div class="narrator">Oh Ji-kang waved his hands.</div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “I told you to speak comfortably.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “How can I even do that? Even if we do that, a deputy is higher than a Hakjeong!”
+    </div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “Huh. How can you put a scholar who worked in the best educational institution of the empire below an official who works in a province?”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “You are twisting my words.”
+    </div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “I have respected you since the first time I met you. I came to you while pretending to be a chief only to build a friendship with you.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “Chief…”
+    </div>
+
+    <div class="narrator">At those words, Yu Yeop-kyung was moved. <br><br>Now he could understand why the other officials stopped coming to check up on them 5 years ago. It wasn’t because they forgot about him, but because an official of the Judicial Division was directly stopping by the exiled place.</div>
+
+    <div class="narrator">Oh Ji-kang smiled. He, too, had been waiting for this day.</div>
+
+    <div class="thought">‘Yu Hakjeong.’</div>
+
+    <div class="narrator">His appointment in the province was by chance, and he personally checked on the exiled person. And when he met the person, he fell in love with his personality. <br><br>How difficult it must have been for him to raise a child who has been abandoned by someone else, especially since it was a tough task for a bachelor.</div>
+
+    <div class="narrator">Seeing Yu Yeop-kyung in emotional turmoil, Oh Ji-kang said.</div>
+
+    <div class="dialogue oh_ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “Now now. First of all, as Prefect Jang said, we need to move. By now, the news must have spread everywhere.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “Huh?”
+    </div>
+
+    <div class="narrator">At those words, Yu Yeop-kyung looked wide-eyed.</div>
+
+    <div class="narrator">Mumu felt better seeing his father. It was his father who eagerly waited for his exile to end.</div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <div class="narrator">Yu Yeop-kyung and Mumu were on the move on the fifth day, too, while being escorted by Prefect Jang and the others.</div>
+
+    <div class="narrator">Mumu, who was out of exile for the first time, was excited. He lived his whole life looking at trees and mountains, but seeing plain land made him feel jittery.</div>
+
+    <div class="narrator">Yu Yeop-kyung was happy to see his son enjoy it. He was always concerned about his son, especially since the exile was in the mountains.</div>
+
+    <div class="narrator">In truth, Mumu wasn’t even in exile.</div>
+
+    <div class="narrator">After coming out for the first time in 17 years, Yu Yeop-kyung was excited too. He was relieved from his frustration by listening to Oh Ji-kang talk about what had changed in the world.</div>
+
+    <div class="narrator">And that evening.</div>
+
+    <div class="location">EVENING CAMP</div>
+
+    <div class="narrator">For the night, the officers set up camp. Mumu looked at his father and Oh Ji-kang, who were sitting in front of the bonfire chatting amongst themselves.</div>
+
+    <div class="thought">‘… father doesn’t spend time with me anymore.’</div>
+
+    <div class="narrator">The first day or two was fine. It has been 5 days since his father has been with Oh Ji-kang, and Mumu was getting bored.</div>
+
+    <div class="narrator">The other people were all busy setting up the camp.</div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “Mumu. If there is nothing for you to do, help them.”
+    </div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “Come on. Come and get firewood. You’re a man with power.”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Ah.”
+    </div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “You don’t have to answer in such a disinterested way.”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Yes-yes.”
+    </div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “You. Hahaha!”
+    </div>
+
+    <div class="narrator">At Mumu’s voice, the others laughed. They had been seeing him since he was a child. For them, Mumu was like their young nephew. So they could guess how Mumu was feeling.</div>
+
+    <div class="narrator">A man touched Mumu on his forehead and said.</div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “Kid. If you’re bored, I told you to help these guys out. Why are you looking so gloomy?”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “I know that. My father isn’t acting fatherly towards me.”
+    </div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “This kid…”
+    </div>
+
+    <div class="narrator">The people were shocked by that. The father and son seemed to have an innocent relationship.</div>
+
+    <div class="narrator">Usually, boys of Mumu’s age, even if they are close and respect their father, tend to be afraid of them. However, Mumu thought of his father as more of a friend than a parent.</div>
+
+    <div class="thought">‘Because it was just the two of them.’</div>
+
+    <div class="narrator">It seemed like the environment played a role.</div>
+
+    <div class="narrator">Mumu, who grumbled that, moved and grabbed a handful of firewood and moved it.</div>
+
+    <div class="narrator">Seeing that, the people were shocked.</div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “It’s as shocking as ever. Really.”
+    </div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “I don’t even get it. He didn’t even learn martial arts. How can he be that strong!”
+    </div>
+
+    <div class="narrator">Normal men couldn’t lift that much. Every time they saw it, the more amazing it was.</div>
+
+    <div class="narrator">Mumu set the firewood down by the bonfire and asked.</div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Uncles. I have wanted to ask this for a while. What exactly is martial arts?”
+    </div>
+
+    <div class="narrator">It was something he was curious about. It was because of the bandits, who kept mentioning it and associating it with Mumu’s strength over and over again. They all asked if Mumu had learned martial arts and whose disciple he was, but Mumu couldn’t understand it.</div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “Martial arts?”
+    </div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “We don’t know about it either.”
+    </div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “How can simple officers like us know that?”
+    </div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “Martial arts is something that only Murim people learn, but I don’t know how much of that is the truth.”
+    </div>
+
+    <div class="narrator">The officers said. Honestly, they didn’t know. It was because martial arts wasn’t something that ordinary people could learn.</div>
+
+    <div class="narrator">One officer said.</div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “Instead of us, ask Prefect Jang.”
+    </div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “Right. Since Prefect Jang is from Murim, he should be able to answer your questions.”
+    </div>
+
+    <div class="narrator">At that, Mumu turned his head.</div>
+
+    <div class="narrator">A little far away, he saw Prefect Jang, sitting alone and meditating.</div>
+
+    <div class="narrator">For the past few nights, he was doing that alone. Since Mumu had great eyesight, he would sometimes see Prefect Jang wielding his sword alone.</div>
+
+    <div class="thought">‘It looks like dancing, but is it a martial art?’</div>
+
+    <div class="narrator">The movements were cool. But he couldn’t understand why he moved like that.</div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “Go and ask.”
+    </div>
+
+    <div class="narrator">Mumu approached the man, who was meditating.</div>
+
+    <div class="narrator">Prefect Jang, who was circulating energy with his eyes closed, felt someone approaching him. Actually, he overheard their conversation to some extent.</div>
+
+    <div class="dialogue prefect_jang">
+        <span class="name">Prefect Jang</span>
+        “Mumu.”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Prefect uncle”
+    </div>
+
+    <div class="dialogue prefect_jang">
+        <span class="name">Prefect Jang</span>
+        “What is it?”
+    </div>
+
+    <div class="narrator">He knew what the kid was going to ask, but still, he asked.</div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “What is martial arts?”
+    </div>
+
+    <div class="dialogue prefect_jang">
+        <span class="name">Prefect Jang</span>
+        “Martial arts… are you curious about it?”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Yes. And I’m curious about what uncle is doing right now too.”
+    </div>
+
+    <div class="narrator">At that, he smiled. He, too, was interested in Mumu.</div>
+
+    <div class="narrator">The Mumu he saw working was definitely strong. The firewood and any other heavy loads, Mumu would carry easily.</div>
+
+    <div class="thought">‘Those muscles.’</div>
+
+    <div class="narrator">At that, Prefect Jang looked at Mumu’s body. And he was shocked. The body of a kid who hadn’t trained in martial arts was so greatly developed.</div>
+
+    <div class="narrator">Even now, although his muscles weren’t as great as when he was working with those bands on his limbs, he could still see how defined the muscles on his body were. He couldn’t understand how Mumu trained his body so much.</div>
+
+    <div class="thought">‘If only he was younger, I would have taken him as my disciple.’</div>
+
+    <div class="narrator">Martial arts could be divided into internal energy and external energy usage. <br><br>But, Mumu was so developed physically that he would only need a little push to get into the field of internal energy. However, that was a problem. There is a limit to which internal energy can be learned, and if training wasn’t started from an early age, people would end up feeling their limit.</div>
+
+    <div class="thought">‘It will be difficult to break through the blockages.’</div>
+
+    <div class="narrator">As the body grows older, the vessels that enable the circulation of internal energy develop blockages. That is why Murim families make sure that internal energy training is started from a young age.</div>
+
+    <div class="thought">‘I feel bad for him. Still, he seems interested in martial arts, so should I try teaching him a bit?’</div>
+
+    <div class="narrator">Unless Mumu was his formal disciple, he shouldn’t teach him lessons, but he could tell him the basics.</div>
+
+    <div class="dialogue prefect_jang">
+        <span class="name">Prefect Jang</span>
+        “Mumu. Martial arts means overcoming the body’s limitations by balancing the energies inside and outside of it. It can be said to be a kind of physical training.”
+    </div>
+
+    <div class="narrator">The kid was a child of a scholar who worked in the Imperial Academy. He thought that Mumu would be able to understand it if he said it that way. <br><br>But Mumu tilted his head.</div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Training?”
+    </div>
+
+    <div class="narrator">Mumu glanced up and down at Prefect Jang’s body. At that, the prefect felt a bit embarrassed. He couldn’t understand why the kid was looking at him with those eyes.</div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Hmm. I see. My question has been solved. Thank you.”
+    </div>
+
+    <div class="narrator">Mumu bowed his head and thanked him.</div>
+
+    <div class="dialogue prefect_jang">
+        <span class="name">Prefect Jang</span>
+        “Wai-Wait up. Mumu.”
+    </div>
+
+    <div class="narrator">He called for Mumu.</div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Yes?”
+    </div>
+
+    <div class="narrator">Something didn’t feel right to Prefect Jang. It looked like the kid had lost interest in martial arts after looking at Prefect Jang’s physical condition. It was a gaze that judged his body.</div>
+
+    <div class="thought">‘Sigh.’</div>
+
+    <div class="narrator">He thought that he would have to show the child the majesty of martial arts. <br><br>No matter how hard a body is trained, there are limits. And physical training alone could never overcome internal energy and its techniques.</div>
+
+    <div class="dialogue prefect_jang">
+        <span class="name">Prefect Jang</span>
+        “Mumu. I think this uncle wasn’t able to fully tell you about martial arts.”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Is that so?”
+    </div>
+
+    <div class="dialogue prefect_jang">
+        <span class="name">Prefect Jang</span>
+        “Showing is better than teaching, right? Come take a look.”
+    </div>
+
+    <div class="narrator">To showcase martial arts was the best choice. Wielding a sword would be good, but a light footwork technique was the best to surprise people. When light footwork was learned, one could learn much faster than normal people and even jump higher.</div>
+
+    <div class="dialogue prefect_jang">
+        <span class="name">Prefect Jang</span>
+        “Okay! I’m showing!”
+    </div>
+
+    <div class="sfx">PAK!</div>
+
+    <div class="narrator">Prefect Jang, who gathered energy in his soles, moved. And then lightly stepped on the trees.</div>
+
+    <div class="sfx">TATATAK!</div>
+
+    <div class="narrator">The officers who were watching couldn’t help but marvel at the sight of it, a man who climbed a huge tree in an instant and moved so lightly and elegantly.</div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “Woah!”
+    </div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “How is he doing that?”
+    </div>
+
+    <div class="dialogue officer">
+        <span class="name">Officer</span>
+        “It’s really great. Is that martial arts?”
+    </div>
+
+    <div class="narrator">This much show was enough. He looked down from a tree and spoke to Mumu.</div>
+
+    <div class="dialogue prefect_jang">
+        <span class="name">Prefect Jang</span>
+        “Mumu-yah. Did you see it? This is called a light footwork technique. If this can be learned, then you can jump several feet…”
+    </div>
+
+    <div class="sfx">THUD!</div>
+
+    <div class="narrator">It was then.</div>
+
+    <div class="thought">‘… uh?’</div>
+
+    <div class="narrator">He and Mumu both looked into each other’s eyes at the same height.</div>
+
+    <div class="thought">‘!?’</div>
+
+    <div class="narrator">Prefect Jang doubted his own eyes. <br><br>With one step, Mumu jumped to the top of the tree in an instant. <br><br>The mouths of the officers, who were shocked by the prefect and who were now shocked by Mumu, were agape.</div>
+
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; padding-top: 30px; border-top: 2px solid #333; font-family: 'Nunito', sans-serif;">
+<a href="Chapter_5.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">&larr; Previous</a><a href="index.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">Home</a><a href="Chapter_7.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">Next &rarr;</a>
+</div>
+</body>
+</html>
