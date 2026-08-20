@@ -3,83 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mumu - Chapter 13</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Caveat:wght@700&family=Comic+Neue:wght@700&family=Nunito:wght@400;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Mumu Chapter 13</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Caveat:wght@400;700&family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-color: #1a1a1a; --text-color: #e5e7eb; --thought-bg: #2d3748; --dialogue-bg: #2d2d2d; --sfx-color: #f87171; --accent-gold: #fbbf24; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Nunito', sans-serif; max-width: 700px; margin: 0 auto; padding: 40px 20px; line-height: 1.7; font-size: 19px; }
-        .location { font-family: 'Permanent Marker', cursive; text-align: center; color: var(--accent-gold); font-size: 1.5em; margin: 60px 0 40px 0; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .sfx { font-family: 'Bangers', system-ui; font-size: 3.5em; color: var(--sfx-color); text-align: center; margin: 40px 0; letter-spacing: 3px; text-shadow: 3px 3px 0px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; transform: rotate(-2deg); }
-        .thought { font-family: 'Caveat', cursive; font-size: 1.6em; background-color: var(--thought-bg); border-left: 5px solid #a78bfa; padding: 15px 25px; margin: 25px 10%; color: #ddd6fe; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
-        .narrator { font-family: 'Nunito', sans-serif; margin: 25px 0; color: #9ca3af; text-align: justify; }
-        .dialogue { font-family: 'Comic Neue', cursive; font-weight: 700; background-color: var(--dialogue-bg); border-radius: 15px; padding: 20px; margin: 25px 0; position: relative; box-shadow: 0 4px 8px rgba(0,0,0,0.4); font-size: 1.2em; }
-        .dialogue::after { content: ''; position: absolute; width: 0; height: 0; border: 15px solid transparent; }
-        .dialogue .name { font-family: 'Nunito', sans-serif; font-weight: 900; margin-bottom: 8px; display: block; text-transform: uppercase; font-size: 0.8em; letter-spacing: 1.5px; opacity: 0.8; }
-        .mumu { border: 2px solid #10b981; margin-left: 10%; }
-        .mumu::after { border-top-color: #10b981; border-bottom: 0; border-right: 0; bottom: -15px; left: 20px; }
-        .mumu .name { color: #34d399; }
-        .father { border: 2px solid #3b82f6; margin-right: 10%; }
-        .father::after { border-top-color: #3b82f6; border-bottom: 0; border-left: 0; bottom: -15px; right: 20px; }
-        .father .name { color: #93c5fd; }
-        .divider { text-align: center; color: #4b5563; margin: 60px 0; font-size: 1.5em; letter-spacing: 15px; }
-    </style>
+    :root { --bg-color: #1a1a1a; --text-color: #e5e7eb; --thought-bg: #2d3748; --dialogue-bg: #2d2d2d; --sfx-color: #f87171; --accent-gold: #fbbf24; }
+    body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Nunito', sans-serif; max-width: 700px; margin: 0 auto; padding: 40px 20px; line-height: 1.7; font-size: 19px; }
+    .location { font-family: 'Permanent Marker', cursive; text-align: center; color: var(--accent-gold); font-size: 1.5em; margin: 60px 0 40px 0; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+    .sfx { font-family: 'Bangers', system-ui; font-size: 3.5em; color: var(--sfx-color); text-align: center; margin: 40px 0; letter-spacing: 3px; text-shadow: 3px 3px 0px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; transform: rotate(-2deg); }
+    .thought { font-family: 'Caveat', cursive; font-size: 1.6em; background-color: var(--thought-bg); border-left: 5px solid #a78bfa; padding: 15px 25px; margin: 25px 10%; color: #ddd6fe; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+    .narrator { font-family: 'Nunito', sans-serif; margin: 25px 0; color: #9ca3af; text-align: justify; }
+    .dialogue { font-family: 'Comic Neue', cursive; font-weight: 700; background-color: var(--dialogue-bg); border-radius: 15px; padding: 20px; margin: 25px 0; position: relative; box-shadow: 0 4px 8px rgba(0,0,0,0.4); font-size: 1.2em; }
+    .dialogue::after { content: ''; position: absolute; width: 0; height: 0; border: 15px solid transparent; }
+    .dialogue .name { font-family: 'Nunito', sans-serif; font-weight: 900; margin-bottom: 8px; display: block; text-transform: uppercase; font-size: 0.8em; letter-spacing: 1.5px; opacity: 0.8; }
+    .mumu { border: 2px solid #10b981; margin-left: 10%; }
+    .mumu::after { border-top-color: #10b981; border-bottom: 0; border-right: 0; bottom: -15px; left: 20px; }
+    .mumu .name { color: #34d399; }
+    .father { border: 2px solid #3b82f6; margin-right: 10%; }
+    .father::after { border-top-color: #3b82f6; border-bottom: 0; border-left: 0; bottom: -15px; right: 20px; }
+    .father .name { color: #93c5fd; }
+    .divider { text-align: center; color: #4b5563; margin: 60px 0; font-size: 1.5em; letter-spacing: 15px; }
+</style>
 </head>
 <body>
 
     <div class="location">CHAPTER 13</div>
 
-    <div class="narrator">
-        [The trick of this technique is dispersing incoming force. To use it, one must have a strong foundation. If you master and embody it, you can disperse great power.]
-    </div>
+    <div class="narrator">[The trick of this technique is dispersing incoming force. To use it, one must have a strong foundation. If you master and embody it, you can disperse great power.]</div>
 
-    <div class="narrator">
-        Those were the words of Jo Il-ryang, who taught Yu Jin-hyuk the technique.
-    </div>
+    <div class="narrator">Those were the words of Jo Il-ryang, who taught Yu Jin-hyuk the technique.</div>
 
-    <div class="narrator">
-        Although Il-ryang had a slender build, he could survive for half a day on one foot while ten people tried to push him down.
-    </div>
+    <div class="narrator">Although Il-ryang had a slender build, he could survive for half a day on one foot while ten people tried to push him down.</div>
 
-    <div class="narrator">
-        And Jin-hyuk, who learned that skill, was confident that he could somewhat replicate that.
-    </div>
+    <div class="narrator">And Jin-hyuk, who learned that skill, was confident that he could somewhat replicate that.</div>
 
-    <div class="thought">
-        ‘… no way.’
-    </div>
+    <div class="thought">‘… no way.’</div>
 
-    <div class="narrator">
-        The skill he was proud of shattered.<br>
-        By a simple force.
-    </div>
+    <div class="narrator">The skill he was proud of shattered.</div>
 
-    <div class="narrator">
-        Even Lady Jang, who told her husband to watch proudly, was shocked and bewildered.
-    </div>
+    <div class="narrator">By a simple force.</div>
 
-    <div class="dialogue">
+    <div class="narrator">Even Lady Jang, who told her husband to watch proudly, was shocked and bewildered.</div>
+
+    <div class="dialogue jang">
         <span class="name">Lady Jang</span>
         “Mumu… Mumu is really strong.”
     </div>
 
     <div class="dialogue father">
-        <span class="name">Father</span>
+        <span class="name">Yu Yeop-kyung</span>
         “I told you.”
     </div>
 
-    <div class="narrator">
-        They whispered quietly.
-    </div>
+    <div class="narrator">They whispered quietly.</div>
 
-    <div class="narrator">
-        Yu Jin-hyuk wanted to show them something, but now they were afraid that he would lose his spirit because of the failure.
-    </div>
+    <div class="narrator">Yu Jin-hyuk wanted to show them something, but now they were afraid that he would lose his spirit because of the failure.</div>
 
-    <div class="narrator">
-        At that time, Yu Jin-hyuk said with a red face.
-    </div>
+    <div class="narrator">At that time, Yu Jin-hyuk said with a red face.</div>
 
-    <div class="dialogue">
+    <div class="dialogue jinhyuk">
         <span class="name">Yu Jin-hyuk</span>
         “L-Let’s do it again.”
     </div>
@@ -89,633 +72,375 @@
         “Again?”
     </div>
 
-    <div class="dialogue">
+    <div class="dialogue jinhyuk">
         <span class="name">Yu Jin-hyuk</span>
         “I made a mistake. I haven’t fully mastered the technique my teacher showed me, so you were able to push me away.”
     </div>
 
-    <div class="narrator">
-        He didn’t want to disgrace his teacher.
-    </div>
+    <div class="narrator">He didn’t want to disgrace his teacher.</div>
 
-    <div class="thought">
-        ‘This kid…’
-    </div>
+    <div class="thought">‘This kid…’</div>
 
-    <div class="narrator">
-        Yu Yeop-kyung felt proud when his son didn’t succumb to the failure and asked for another try.
-    </div>
+    <div class="narrator">Yu Yeop-kyung felt proud when his son didn’t succumb to the failure and asked for another try.</div>
 
-    <div class="narrator">
-        His son had grown up right.
-    </div>
+    <div class="narrator">His son had grown up right.</div>
 
-    <div class="narrator">
-        Even though he didn’t know what martial arts was, he was proud of his son, who stood tall.
-    </div>
+    <div class="narrator">Even though he didn’t know what martial arts was, he was proud of his son, who stood tall.</div>
 
-    <div class="narrator">
-        The quarrel between Yu Jin-hyuk, who wanted to regain his lost self-esteem, and Mumu, who thought it was bothersome, continued for some time.
-    </div>
+    <div class="narrator">The quarrel between Yu Jin-hyuk, who wanted to regain his lost self-esteem, and Mumu, who thought it was bothersome, continued for some time.</div>
 
-    <div class="narrator">
-        Yu Yeop-kyung, who was worried that the fight would become huge if Mumu didn’t say yes, convinced Mumu to retry.
-    </div>
+    <div class="narrator">Yu Yeop-kyung, who was worried that the fight would become huge if Mumu didn’t say yes, convinced Mumu to retry.</div>
 
-    <div class="narrator">
-        And thus, the family’s reconciliation was carried out in a noisy manner until late at night.
-    </div>
+    <div class="narrator">And thus, the family’s reconciliation was carried out in a noisy manner until late at night.</div>
 
     <div class="divider">◆ ◆ ◆</div>
 
     <div class="location">EARLY THE NEXT MORNING</div>
+    <div class="location">A TRAINING HALL</div>
 
-    <div class="narrator">
-        In a training hall not far from Yu Yeop-kyung’s house.
-    </div>
+    <div class="narrator">A boy was sitting cross-legged. It was Yu Jin-hyuk.</div>
 
-    <div class="narrator">
-        A boy was sitting cross-legged. It was Yu Jin-hyuk.
-    </div>
+    <div class="narrator">He was gathering qi from the air and putting it into his dantian and body by inhaling and exhaling.</div>
 
-    <div class="narrator">
-        He was gathering qi from the air and putting it into his dantian and body by inhaling and exhaling.
-    </div>
+    <div class="narrator">This is cultivation.</div>
 
-    <div class="narrator">
-        This is cultivation.
-    </div>
+    <div class="narrator">And Yu Jin-hyuk was practicing it.</div>
 
-    <div class="narrator">
-        And Yu Jin-hyuk was practicing it.
-    </div>
+    <div class="narrator">But…</div>
 
-    <div class="narrator">
-        But…
-    </div>
+    <div class="thought">‘I can’t concentrate.’</div>
 
-    <div class="thought">
-        ‘I can’t concentrate.’
-    </div>
+    <div class="narrator">Usually, he would be in a state of thoughtlessness at this point.</div>
 
-    <div class="narrator">
-        Usually, he would be in a state of thoughtlessness at this point.
-    </div>
+    <div class="narrator">However, he wasn’t able to do that and he couldn’t concentrate.</div>
 
-    <div class="narrator">
-        However, he wasn’t able to do that and he couldn’t concentrate.
-    </div>
+    <div class="narrator">Just thinking about yesterday’s events, he couldn’t hold back his resentment.</div>
 
-    <div class="narrator">
-        Just thinking about yesterday’s events, he couldn’t hold back his resentment.
-    </div>
+    <div class="thought">‘What about the effort I put in until now?’</div>
 
-    <div class="thought">
-        ‘What about the effort I put in until now?’
-    </div>
+    <div class="narrator">From a young age, he admired his older brother and constantly practiced martial arts.</div>
 
-    <div class="narrator">
-        From a young age, he admired his older brother and constantly practiced martial arts.
-    </div>
+    <div class="narrator">For that reason, he was praised by his teachers.</div>
 
-    <div class="narrator">
-        For that reason, he was praised by his teachers.
-    </div>
+    <div class="narrator">And they told him that there would only be a few people his age who could compete with him, and those people would be from the 9 Great Sects and the 6 Great Clans.</div>
 
-    <div class="narrator">
-        And they told him that there would only be a few people his age who could compete with him, and those people would be from the 9 Great Sects and the 6 Great Clans.
-    </div>
+    <div class="narrator">But how was Mumu able to beat him?</div>
 
-    <div class="narrator">
-        But how was Mumu able to beat him?
-    </div>
+    <div class="thought">‘I got pushed back by just strength.’</div>
 
-    <div class="thought">
-        ‘I got pushed back by just strength.’
-    </div>
+    <div class="narrator">To be honest, he wasn’t just blown away by his strength.</div>
 
-    <div class="narrator">
-        To be honest, he wasn’t just blown away by his strength.
-    </div>
+    <div class="narrator">He was shocked by those huge, densely developed muscles.</div>
 
-    <div class="narrator">
-        He was shocked by those huge, densely developed muscles.
-    </div>
+    <div class="narrator">But no matter how much he thought about it, he couldn’t understand.</div>
 
-    <div class="narrator">
-        But no matter how much he thought about it, he couldn’t understand.
-    </div>
+    <div class="thought">‘How can muscle strength be stronger than internal energy?’</div>
 
-    <div class="thought">
-        ‘How can muscle strength be stronger than internal energy?’
-    </div>
+    <div class="narrator">Internal energy followed a concept of Qi.</div>
 
-    <div class="narrator">
-        Internal energy followed a concept of Qi.
-    </div>
+    <div class="narrator">The internal energy generated by accumulating qi would incredibly strengthen one’s external power.</div>
 
-    <div class="narrator">
-        The internal energy generated by accumulating qi would incredibly strengthen one’s external power.
-    </div>
+    <div class="narrator">However, Mumu, with his muscle strength, overwhelmed him.</div>
 
-    <div class="narrator">
-        However, Mumu, with his muscle strength, overwhelmed him.
-    </div>
+    <div class="narrator">It wasn’t like he was the strongest Murim warrior, but Yu Jin-hyuk couldn’t accept it.</div>
 
-    <div class="narrator">
-        It wasn’t like he was the strongest Murim warrior, but Yu Jin-hyuk couldn’t accept it.
-    </div>
-
-    <div class="narrator">
-        It was then.
-    </div>
+    <div class="narrator">It was then.</div>
 
     <div class="sfx">TAK!</div>
 
-    <div class="dialogue">
+    <div class="dialogue jinhyuk">
         <span class="name">Yu Jin-hyuk</span>
         “Huh.”
     </div>
 
-    <div class="narrator">
-        Yu Jin-hyuk opened his eyes in shock.
-    </div>
+    <div class="narrator">Yu Jin-hyuk opened his eyes in shock.</div>
 
-    <div class="narrator">
-        In front of him stood a slender middle-aged man with a goatee.
-    </div>
+    <div class="narrator">In front of him stood a slender middle-aged man with a goatee.</div>
 
-    <div class="narrator">
-        It was Jo Il-ryang, one of his three teachers.
-    </div>
+    <div class="narrator">It was Jo Il-ryang, one of his three teachers.</div>
 
-    <div class="narrator">
-        When he was young, the man was famous, but now he took in disciples and nurtured them.
-    </div>
+    <div class="narrator">When he was young, the man was famous, but now he took in disciples and nurtured them.</div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Your breathing is haggard. Why aren’t you concentrating?”
     </div>
 
-    <div class="dialogue">
+    <div class="dialogue jinhyuk">
         <span class="name">Yu Jin-hyuk</span>
         “I-I apologize.”
     </div>
 
-    <div class="narrator">
-        Improperly executing cultivation is dangerous, but most people couldn’t notice inconsistencies in others’ cultivation.
-    </div>
+    <div class="narrator">Improperly executing cultivation is dangerous, but most people couldn’t notice inconsistencies in others’ cultivation.</div>
 
-    <div class="narrator">
-        However, teachers like Jo Il-ryang, who had good ears, could tell if one was breathing properly or not, so he hit the kid with a stick.
-    </div>
+    <div class="narrator">However, teachers like Jo Il-ryang, who had good ears, could tell if one was breathing properly or not, so he hit the kid with a stick.</div>
 
-    <div class="narrator">
-        Yu Jin-hyuk touched his aching head.
-    </div>
+    <div class="narrator">Yu Jin-hyuk touched his aching head.</div>
 
-    <div class="narrator">
-        And then Jo Il-ryang continued.
-    </div>
+    <div class="narrator">And then Jo Il-ryang continued.</div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “In three days, the entrance test for the Heavenly Martial Arts Academy will be held. Everyone is working hard with their eyes wide open to prepare for it, but what are you doing?”
     </div>
 
-    <div class="narrator">
-        At those words, Yu Jin-hyuk bowed his head in embarrassment.
-    </div>
+    <div class="narrator">At those words, Yu Jin-hyuk bowed his head in embarrassment.</div>
 
-    <div class="narrator">
-        What the man said was right.
-    </div>
+    <div class="narrator">What the man said was right.</div>
 
-    <div class="narrator">
-        He was actually in a state of anger about whether he would pass the test or not.
-    </div>
+    <div class="narrator">He was actually in a state of anger about whether he would pass the test or not.</div>
 
-    <div class="narrator">
-        Seeing the disciple who was reflecting on his emotional state, Jo Il-ryang laughed inside.
-    </div>
+    <div class="narrator">Seeing the disciple who was reflecting on his emotional state, Jo Il-ryang laughed inside.</div>
 
-    <div class="thought">
-        ‘This one. He’s someone who isn’t this distracted usually, but he seems upset as he met his father and adopted brother for the first time.’
-    </div>
+    <div class="thought">‘This one. He’s someone who isn’t this distracted usually, but he seems upset as he met his father and adopted brother for the first time.’</div>
 
-    <div class="narrator">
-        Jo Il-ryang knew about the family’s circumstances.
-    </div>
+    <div class="narrator">Jo Il-ryang knew about the family’s circumstances.</div>
 
-    <div class="narrator">
-        So, even without Jin-hyuk saying anything about it, he knew what Yu Jin-hyuk was going through.
-    </div>
+    <div class="narrator">So, even without Jin-hyuk saying anything about it, he knew what Yu Jin-hyuk was going through.</div>
 
-    <div class="narrator">
-        But now, the kid had to prepare for the entrance test.
-    </div>
+    <div class="narrator">But now, the kid had to prepare for the entrance test.</div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Come on and focus already. If your brother got a top rank, then you’ll have to aim for an even higher one.”
     </div>
 
-    <div class="dialogue">
+    <div class="dialogue jinhyuk">
         <span class="name">Yu Jin-hyuk</span>
         “Alright.”
     </div>
 
-    <div class="narrator">
-        For the teacher, his student’s admission to the academy was important.
-    </div>
+    <div class="narrator">For the teacher, his student’s admission to the academy was important.</div>
 
-    <div class="narrator">
-        Because if he succeeded in enlisting them, then his small training school could be famous for sending their disciples to the academy.
-    </div>
+    <div class="narrator">Because if he succeeded in enlisting them, then his small training school could be famous for sending their disciples to the academy.</div>
 
-    <div class="narrator">
-        So he wanted his disciple to focus and do his best.
-    </div>
+    <div class="narrator">So he wanted his disciple to focus and do his best.</div>
 
-    <div class="narrator">
-        At that time, Yu Jin-hyuk said,
-    </div>
+    <div class="narrator">At that time, Yu Jin-hyuk said,</div>
 
-    <div class="dialogue">
+    <div class="dialogue jinhyuk">
         <span class="name">Yu Jin-hyuk</span>
         “Teacher.”
     </div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Uh. Can’t concentrate?”
     </div>
 
-    <div class="dialogue">
+    <div class="dialogue jinhyuk">
         <span class="name">Yu Jin-hyuk</span>
         “About that… is it possible to break the Mystery of the Four Way Foot Extreme Weight technique with just physical strength?”
     </div>
 
-    <div class="narrator">
-        Jo Il-ryang laughed at the question.
-    </div>
+    <div class="narrator">Jo Il-ryang laughed at the question.</div>
 
-    <div class="narrator">
-        The question was childish, but he was thankful that the kid seemed alright.
-    </div>
+    <div class="narrator">The question was childish, but he was thankful that the kid seemed alright.</div>
 
-    <div class="narrator">
-        He laughed and said,
-    </div>
+    <div class="narrator">He laughed and said,</div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “If you can master the technique properly, even if one applies multiple tons of force, you will be able to disperse the force and hold your ground. However, if you want to use it perfectly, you have to Shift Flowers to Trees.”
     </div>
 
-    <div class="narrator">
-        Shift Flowers to Trees.
-    </div>
+    <div class="narrator">Shift Flowers to Trees.</div>
 
-    <div class="narrator">
-        It means to turn a flower into a tree. It’s a high-level technique that returns an opponent’s attack to hit the opponent back to them. (1)
-    </div>
+    <div class="narrator">It means to turn a flower into a tree. It’s a high-level technique that returns an opponent’s attack to hit the opponent back to them. (1)</div>
 
-    <div class="narrator">
-        Such a technique would be difficult to perform unless one’s a Super Master and learned the technique properly.
-    </div>
+    <div class="narrator">Such a technique would be difficult to perform unless one’s a Super Master and learned the technique properly.</div>
 
-    <div class="narrator">
-        Yu Jin-hyuk nodded at those words and said,
-    </div>
+    <div class="narrator">Yu Jin-hyuk nodded at those words and said,</div>
 
-    <div class="dialogue">
+    <div class="dialogue jinhyuk">
         <span class="name">Yu Jin-hyuk</span>
         “It must have been me who didn’t learn it properly.”
     </div>
 
-    <div class="narrator">
-        Jo Il-ryang was puzzled by it.
-    </div>
+    <div class="narrator">Jo Il-ryang was puzzled by it.</div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Have you had the chance to compete with someone else?”
     </div>
 
-    <div class="narrator">
-        If that wasn’t the case, such words wouldn’t have come out.
-    </div>
+    <div class="narrator">If that wasn’t the case, such words wouldn’t have come out.</div>
 
-    <div class="narrator">
-        Hesitating, Yu Jin-hyuk spoke about what happened last night.
-    </div>
+    <div class="narrator">Hesitating, Yu Jin-hyuk spoke about what happened last night.</div>
 
-    <div class="narrator">
-        Upon hearing the story, Jo Il-ryang frowned.
-    </div>
+    <div class="narrator">Upon hearing the story, Jo Il-ryang frowned.</div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “So you’re saying that a child who didn’t learn martial arts pushed you away with his strength?”
     </div>
 
-    <div class="narrator">
-        That was impossible.
-    </div>
+    <div class="narrator">That was impossible.</div>
 
-    <div class="narrator">
-        If it was someone else, it might be possible, but Yu Jin-hyuk was on the verge of completing the technique.
-    </div>
+    <div class="narrator">If it was someone else, it might be possible, but Yu Jin-hyuk was on the verge of completing the technique.</div>
 
-    <div class="narrator">
-        It would be tough for him to cope with someone his teacher’s level, but he wasn’t lacking too much, and it was impossible for someone who didn’t know martial arts to even do that.
-    </div>
+    <div class="narrator">It would be tough for him to cope with someone his teacher’s level, but he wasn’t lacking too much, and it was impossible for someone who didn’t know martial arts to even do that.</div>
 
-    <div class="dialogue">
+    <div class="dialogue jinhyuk">
         <span class="name">Yu Jin-hyuk</span>
         “… I can’t believe it either, but I’m not able to shake my thoughts.”
     </div>
 
-    <div class="narrator">
-        After hearing his disciple’s story, Jo Il-ryang thought that it wasn’t impossible.
-    </div>
+    <div class="narrator">After hearing his disciple’s story, Jo Il-ryang thought that it wasn’t impossible.</div>
 
-    <div class="narrator">
-        So he asked him.
-    </div>
+    <div class="narrator">So he asked him.</div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “That child, where is he now?”
     </div>
 
     <div class="divider">◆ ◆ ◆</div>
 
-    <div class="location">A FOREST TEN MILES WEST</div>
+    <div class="location">A SMALL FOREST</div>
+    <div class="location">10 MILES WEST</div>
 
-    <div class="narrator">
-        There was a small forest ten miles west of Yu Yeop-kyung’s house.
-    </div>
+    <div class="narrator">Mumu, who was there, was looking for a suitable place to train.</div>
 
-    <div class="narrator">
-        Mumu, who was there, was looking for a suitable place to train.
-    </div>
+    <div class="narrator">He eventually found a little valley surrounded by bushes and large and small boulders around it.</div>
 
-    <div class="narrator">
-        He eventually found a little valley surrounded by bushes and large and small boulders around it.
-    </div>
+    <div class="narrator">To Mumu, those rocks were nothing more than training tools.</div>
 
-    <div class="narrator">
-        To Mumu, those rocks were nothing more than training tools.
-    </div>
-
-    <div class="narrator">
-        He brought a few iron rods with him, but Mumu just tied a massive rock to his back and squatted repeatedly.
-    </div>
+    <div class="narrator">He brought a few iron rods with him, but Mumu just tied a massive rock to his back and squatted repeatedly.</div>
 
     <div class="dialogue mumu">
         <span class="name">Mumu</span>
         “982… 983… 984…”
     </div>
 
-    <div class="narrator">
-        Mumu was happy training again after a long time.
-    </div>
+    <div class="narrator">Mumu was happy training again after a long time.</div>
 
-    <div class="narrator">
-        He was smiling.
-    </div>
+    <div class="narrator">He was smiling.</div>
 
-    <div class="narrator">
-        During the period of not training his heart ached because his muscles he protected like children would decrease, but while stretching again, it felt like he was flying.
-    </div>
+    <div class="narrator">During the period of not training his heart ached because his muscles he protected like children would decrease, but while stretching again, it felt like he was flying.</div>
 
-    <div class="thought">
-        ‘I need to make up for what I’ll miss.’
-    </div>
+    <div class="thought">‘I need to make up for what I’ll miss.’</div>
 
-    <div class="narrator">
-        He heard about the academy’s entrance test.
-    </div>
+    <div class="narrator">He heard about the academy’s entrance test.</div>
 
-    <div class="narrator">
-        If he passed, he would live in a dormitory, and then he might not have the freedom to train.
-    </div>
+    <div class="narrator">If he passed, he would live in a dormitory, and then he might not have the freedom to train.</div>
 
-    <div class="narrator">
-        Mumu decided to work out for any days he might miss.
-    </div>
+    <div class="narrator">Mumu decided to work out for any days he might miss.</div>
 
-    <div class="thought">
-        ‘Nice.’
-    </div>
+    <div class="thought">‘Nice.’</div>
 
-    <div class="narrator">
-        He went to squat again, but he suddenly heard a small noise from a distance.
-    </div>
+    <div class="narrator">He went to squat again, but he suddenly heard a small noise from a distance.</div>
 
-    <div class="narrator">
-        He ignored it at first, but as it got louder it seemed like something was approaching, so he decided to look.
-    </div>
+    <div class="narrator">He ignored it at first, but as it got louder it seemed like something was approaching, so he decided to look.</div>
 
-    <div class="narrator">
-        He turned his head towards the noise, annoyed that something was interrupting his training, and what he saw was slightly surprising but anticlimactic.
-    </div>
+    <div class="narrator">He turned his head towards the noise, annoyed that something was interrupting his training, and what he saw was slightly surprising but anticlimactic.</div>
 
-    <div class="narrator">
-        He saw two people coming through the bushes.
-    </div>
+    <div class="narrator">He saw two people coming through the bushes.</div>
 
-    <div class="narrator">
-        One of them was a man with a goatee, it was his first time seeing him, and the other one was the second son of his father.
-    </div>
+    <div class="narrator">One of them was a man with a goatee, it was his first time seeing him, and the other one was the second son of his father.</div>
 
-    <div class="thought">
-        ‘Ah, annoying.’
-    </div>
+    <div class="thought">‘Ah, annoying.’</div>
 
-    <div class="narrator">
-        Why did he come all the way over here?
-    </div>
+    <div class="thought">‘Why did he come all the way over here?’</div>
 
-    <div class="narrator">
-        He did ask where the nearest mountain was, but he didn’t expect the second son to come find him.
-    </div>
+    <div class="narrator">He did ask where the nearest mountain was, but he didn’t expect the second son to come find him.</div>
 
-    <div class="narrator">
-        Unlike Mumu, who was annoyed by it, Yu Jin-hyuk was shocked.
-    </div>
+    <div class="narrator">Unlike Mumu, who was annoyed by it, Yu Jin-hyuk was shocked.</div>
 
-    <div class="thought">
-        ‘W-What is that?’
-    </div>
+    <div class="thought">‘W-What is that?’</div>
 
-    <div class="narrator">
-        Mumu squatted with that huge rock on his back.
-    </div>
+    <div class="narrator">Mumu squatted with that huge rock on his back.</div>
 
-    <div class="narrator">
-        He wouldn’t be able to stand with that rock’s weight on his back, even if he mastered internal energy, let alone squat that weight.
-    </div>
+    <div class="narrator">He wouldn’t be able to stand with that rock’s weight on his back, even if he mastered internal energy, let alone squat that weight.</div>
 
-    <div class="narrator">
-        Shockingly, Jo Il-ryang was surprised too.
-    </div>
+    <div class="narrator">Shockingly, Jo Il-ryang was surprised too.</div>
 
-    <div class="thought">
-        ‘Ha…’
-    </div>
+    <div class="thought">‘Ha…’</div>
 
-    <div class="narrator">
-        He did hear from his disciple about the kid.
-    </div>
+    <div class="narrator">He did hear from his disciple about the kid.</div>
 
-    <div class="narrator">
-        But this was beyond what he was expecting.
-    </div>
+    <div class="narrator">But this was beyond what he was expecting.</div>
 
-    <div class="narrator">
-        It’s no exaggeration to say that even an adult wouldn’t be able to tie a large rock to their back and repeat that movement.
-    </div>
+    <div class="narrator">It’s no exaggeration to say that even an adult wouldn’t be able to tie a large rock to their back and repeat that movement.</div>
 
-    <div class="narrator">
-        What was even more shocking were the words coming out of the kid’s mouth.
-    </div>
+    <div class="narrator">What was even more shocking were the words coming out of the kid’s mouth.</div>
 
     <div class="dialogue mumu">
         <span class="name">Mumu</span>
         “998… 999… 1000…”
     </div>
 
-    <div class="thought">
-        ‘So he squatted with it that many times?’
-    </div>
+    <div class="thought">‘So he squatted with it that many times?’</div>
 
-    <div class="narrator">
-        It was a type of training he never did because it overuses the body’s muscles.
-    </div>
+    <div class="narrator">It was a type of training he never did because it overuses the body’s muscles.</div>
 
-    <div class="narrator">
-        He wasn’t sure who taught him such an ignorant way to train his body, but he was convinced that training like that would damage the body.
-    </div>
+    <div class="narrator">He wasn’t sure who taught him such an ignorant way to train his body, but he was convinced that training like that would damage the body.</div>
 
-    <div class="narrator">
-        However…
-    </div>
+    <div class="narrator">However…</div>
 
     <div class="sfx">GULP!</div>
 
-    <div class="narrator">
-        Jo Il-ryang gulped.
-    </div>
+    <div class="narrator">Jo Il-ryang gulped.</div>
 
-    <div class="narrator">
-        Indeed, Mumu didn’t learn martial arts just as his disciple said, and he only had physical strength; it could be said that he was a natural martial artist.
-    </div>
+    <div class="narrator">Indeed, Mumu didn’t learn martial arts just as his disciple said, and he only had physical strength; it could be said that he was a natural martial artist.</div>
 
-    <div class="narrator">
-        The muscles which were visible through the sweat-soaked clothes were spectacular.
-    </div>
+    <div class="narrator">The muscles which were visible through the sweat-soaked clothes were spectacular.</div>
 
-    <div class="thought">
-        ‘He’s amazing. If he trains and pushes himself to this extreme, he would do better than his teacher.’
-    </div>
+    <div class="thought">‘He’s amazing. If he trains and pushes himself to this extreme, he would do better than his teacher.’</div>
 
-    <div class="narrator">
-        It was his first time finding a gem after Yu Jin-sung.
-    </div>
+    <div class="narrator">It was his first time finding a gem after Yu Jin-sung.</div>
 
-    <div class="narrator">
-        Jo Il-ryang liked him.
-    </div>
+    <div class="narrator">Jo Il-ryang liked him.</div>
 
-    <div class="narrator">
-        He even thought about taking the adopted son Mumu as his disciple.
-    </div>
+    <div class="narrator">He even thought about taking the adopted son Mumu as his disciple.</div>
 
-    <div class="thought">
-        ‘This is a good opportunity.’
-    </div>
+    <div class="thought">‘This is a good opportunity.’</div>
 
-    <div class="narrator">
-        Jo Il-ryang knew that it would be impossible to enter the Heavenly Martial Arts Academy despite his physical strength if he didn’t master martial arts.
-    </div>
+    <div class="narrator">Jo Il-ryang knew that it would be impossible to enter the Heavenly Martial Arts Academy despite his physical strength if he didn’t master martial arts.</div>
 
-    <div class="narrator">
-        Physical strength had a limit.
-    </div>
+    <div class="narrator">Physical strength had a limit.</div>
 
-    <div class="narrator">
-        And martial arts was literally a way of dealing with others.
-    </div>
+    <div class="narrator">And martial arts was literally a way of dealing with others.</div>
 
-    <div class="narrator">
-        But if one could handle others with strength, then why learn martial arts?
-    </div>
+    <div class="narrator">But if one could handle others with strength, then why learn martial arts?</div>
 
-    <div class="thought">
-        ‘It would’ve been better if I met him when he was younger, but still, it would help me display the school.’
-    </div>
+    <div class="thought">‘It would’ve been better if I met him when he was younger, but still, it would help me display the school.’</div>
 
-    <div class="narrator">
-        Jo Il-ryang made his decision.
-    </div>
+    <div class="narrator">Jo Il-ryang made his decision.</div>
 
-    <div class="narrator">
-        He was going to make Mumu his disciple and enlist him in the academy after a year.
-    </div>
+    <div class="narrator">He was going to make Mumu his disciple and enlist him in the academy after a year.</div>
 
-    <div class="narrator">
-        If that happened, then there was a chance more strong people would come to train under him.
-    </div>
+    <div class="narrator">If that happened, then there was a chance more strong people would come to train under him.</div>
 
-    <div class="narrator">
-        He, who was full of dreams, spoke to Jin-hyuk.
-    </div>
+    <div class="narrator">He, who was full of dreams, spoke to Jin-hyuk.</div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Watch. I will show you how the technique is done.”
     </div>
 
     <div class="sfx">PHAT!</div>
 
-    <div class="narrator">
-        With that, Jo Il-ryang moved very lightly.
-    </div>
+    <div class="narrator">With that, Jo Il-ryang moved very lightly.</div>
 
-    <div class="narrator">
-        Mumu watched the man, who was approaching him from a long distance.
-    </div>
+    <div class="narrator">Mumu watched the man, who was approaching him from a long distance.</div>
 
-    <div class="narrator">
-        In an instant, he got in front of Mumu.
-    </div>
+    <div class="narrator">In an instant, he got in front of Mumu.</div>
 
-    <div class="thought">
-        ‘He’s fast!’
-    </div>
+    <div class="thought">‘He’s fast!’</div>
 
-    <div class="narrator">
-        He never saw anyone move so fast.
-    </div>
+    <div class="narrator">He never saw anyone move so fast.</div>
 
-    <div class="narrator">
-        He did see a few fast people in the bandits he killed, but this man was faster.
-    </div>
+    <div class="narrator">He did see a few fast people in the bandits he killed, but this man was faster.</div>
 
-    <div class="narrator">
-        Mumu asked.
-    </div>
+    <div class="narrator">Mumu asked.</div>
 
     <div class="dialogue mumu">
         <span class="name">Mumu</span>
         “Who are you?”
     </div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Are you Mumu? I’m Jo Il-ryang, one of your brother’s teachers.”
     </div>
@@ -725,24 +450,18 @@
         “Ah really? Hello. I’m Mumu.”
     </div>
 
-    <div class="narrator">
-        At Mumu’s remark, Jo Il-ryang smiled.
-    </div>
+    <div class="narrator">At Mumu’s remark, Jo Il-ryang smiled.</div>
 
-    <div class="narrator">
-        He didn’t just have a strong body; he also had a pretty face which would make any woman fall for him, but his tone and expressions were innocent.
-    </div>
+    <div class="narrator">He didn’t just have a strong body; he also had a pretty face which would make any woman fall for him, but his tone and expressions were innocent.</div>
 
-    <div class="narrator">
-        Since he lived in the mountains his whole life it’s possible that he’s innocent.
-    </div>
+    <div class="narrator">Since he lived in the mountains his whole life it’s possible that he’s innocent.</div>
 
     <div class="dialogue mumu">
         <span class="name">Mumu</span>
         “But what are you doing here?”
     </div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Huhu. I heard about you from Jin-hyuk.”
     </div>
@@ -752,28 +471,20 @@
         “Jin-hyuk?”
     </div>
 
-    <div class="narrator">
-        Since last night, he seemed pissed off and didn’t even look at Mumu.
-    </div>
+    <div class="narrator">Since last night, he seemed pissed off and didn’t even look at Mumu.</div>
 
-    <div class="thought">
-        ‘Is he actually a nice guy?’
-    </div>
+    <div class="thought">‘Is he actually a nice guy?’</div>
 
-    <div class="narrator">
-        He wasn’t sure about that.
-    </div>
+    <div class="narrator">He wasn’t sure about that.</div>
 
-    <div class="narrator">
-        Regardless, Jo Il-ryang approached him and then drew a circle around himself, just like Yu Jin-hyuk did yesterday evening, and stood on one foot.
-    </div>
+    <div class="narrator">Regardless, Jo Il-ryang approached him and then drew a circle around himself, just like Yu Jin-hyuk did yesterday evening, and stood on one foot.</div>
 
     <div class="dialogue mumu">
         <span class="name">Mumu</span>
         “What are you doing?”
     </div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Jin-hyuk said that he couldn’t show you the perfect form yesterday, so this mister is going to teach Jin-hyuk how it’s done and show you too.”
     </div>
@@ -783,7 +494,7 @@
         “Ahh… you mean that thing where someone tries to push you out of the circle?”
     </div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Yes. That’s it. Can you push me out?”
     </div>
@@ -793,19 +504,13 @@
         “Why me?”
     </div>
 
-    <div class="narrator">
-        Jo Il-ryang frowned at Mumu’s response.
-    </div>
+    <div class="narrator">Jo Il-ryang frowned at Mumu’s response.</div>
 
-    <div class="narrator">
-        He thought Mumu was naïve, but it didn’t seem like that.
-    </div>
+    <div class="narrator">He thought Mumu was naïve, but it didn’t seem like that.</div>
 
-    <div class="narrator">
-        And he said,
-    </div>
+    <div class="narrator">And he said,</div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “If you can push me out like you did to Jin-hyuk, I will give you a nice present.”
     </div>
@@ -815,29 +520,23 @@
         “Present? What present?”
     </div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “You will only find out when you push me out of the circle, okay?”
     </div>
 
-    <div class="narrator">
-        Jo Il-ryang changed his method to make Mumu act.
-    </div>
+    <div class="narrator">Jo Il-ryang changed his method to make Mumu act.</div>
 
-    <div class="narrator">
-        After Mumu failed his attempt, his greatness would be shown and he would then ask Mumu to be his disciple.
-    </div>
+    <div class="narrator">After Mumu failed his attempt, his greatness would be shown and he would then ask Mumu to be his disciple.</div>
 
-    <div class="narrator">
-        While he was thinking ahead, Mumu asked.
-    </div>
+    <div class="narrator">While he was thinking ahead, Mumu asked.</div>
 
     <div class="dialogue mumu">
         <span class="name">Mumu</span>
         “You won’t go back on words, right?”
     </div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Huhuhu. I’m your brother’s teacher, would I lie to you? Come on.”
     </div>
@@ -847,7 +546,7 @@
         “But you’ll stand on one leg?”
     </div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Yes.”
     </div>
@@ -857,28 +556,20 @@
         “Well, you’ll be out soon then.”
     </div>
 
-    <div class="narrator">
-        Jo Il-ryang smiled.
-    </div>
+    <div class="narrator">Jo Il-ryang smiled.</div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Hahahaha. Don’t worry. No matter how strong you are, pushing me out won’t be easy.”
     </div>
 
-    <div class="narrator">
-        He thought Mumu had too much confidence.
-    </div>
+    <div class="narrator">He thought Mumu had too much confidence.</div>
 
-    <div class="narrator">
-        Jo Il-ryang concentrated his internal energy and then directed it to the foot he was standing on.
-    </div>
+    <div class="narrator">Jo Il-ryang concentrated his internal energy and then directed it to the foot he was standing on.</div>
 
-    <div class="narrator">
-        The technique he used kept his center of gravity on his foot.
-    </div>
+    <div class="narrator">The technique he used kept his center of gravity on his foot.</div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Kay, push.”
     </div>
@@ -888,90 +579,52 @@
         “Okay.”
     </div>
 
-    <div class="narrator">
-        Mumu placed his strong hands on Jo Il-ryang’s chest.
-    </div>
+    <div class="narrator">Mumu placed his strong hands on Jo Il-ryang’s chest.</div>
 
-    <div class="narrator">
-        And pushed.
-    </div>
+    <div class="narrator">And pushed.</div>
 
     <div class="sfx">PUSH!</div>
 
-    <div class="narrator">
-        His feet, which were pushing, went into the ground.
-    </div>
+    <div class="narrator">His feet, which were pushing, went into the ground.</div>
 
-    <div class="narrator">
-        Jo Il-ryang was shocked by Mumu’s power.
-    </div>
+    <div class="narrator">Jo Il-ryang was shocked by Mumu’s power.</div>
 
-    <div class="narrator">
-        He heard about it from Yu Jin-hyuk and he saw Mumu train his body, so he knew about it, but feeling it was different.
-    </div>
+    <div class="narrator">He heard about it from Yu Jin-hyuk and he saw Mumu train his body, so he knew about it, but feeling it was different.</div>
 
     <div class="dialogue mumu">
         <span class="name">Mumu</span>
         “Oh.”
     </div>
 
-    <div class="narrator">
-        Mumu was surprised.
-    </div>
+    <div class="narrator">Mumu was surprised.</div>
 
-    <div class="narrator">
-        He did his best, but he couldn’t push him.
-    </div>
+    <div class="narrator">He did his best, but he couldn’t push him.</div>
 
-    <div class="narrator">
-        Jo Il-ryang was like an old tree with roots deep in the ground.
-    </div>
+    <div class="narrator">Jo Il-ryang was like an old tree with roots deep in the ground.</div>
 
-    <div class="narrator">
-        Yu Jin-hyuk, who watched it, was shocked.
-    </div>
+    <div class="narrator">Yu Jin-hyuk, who watched it, was shocked.</div>
 
-    <div class="thought">
-        ‘Amazing.’
-    </div>
+    <div class="thought">‘Amazing.’</div>
 
-    <div class="narrator">
-        No matter how many times he tried it with Mumu, he kept getting pushed back.
-    </div>
+    <div class="narrator">No matter how many times he tried it with Mumu, he kept getting pushed back.</div>
 
-    <div class="narrator">
-        However, his teacher could endure Mumu’s strength on one foot.
-    </div>
+    <div class="narrator">However, his teacher could endure Mumu’s strength on one foot.</div>
 
-    <div class="narrator">
-        Jin-hyuk looked at his teacher in a new light.
-    </div>
+    <div class="narrator">Jin-hyuk looked at his teacher in a new light.</div>
 
-    <div class="thought">
-        ‘Teacher was right. I must be lacking.’
-    </div>
+    <div class="thought">‘Teacher was right. I must be lacking.’</div>
 
-    <div class="narrator">
-        Jo Il-ryang, who confirmed the two people’s reactions, smiled.
-    </div>
+    <div class="narrator">Jo Il-ryang, who confirmed the two people’s reactions, smiled.</div>
 
-    <div class="narrator">
-        He was a Super Master and had pretty strong internal energy; he was confident that he could handle Mumu.
-    </div>
+    <div class="narrator">He was a Super Master and had pretty strong internal energy; he was confident that he could handle Mumu.</div>
 
-    <div class="narrator">
-        Despite that, seeing Mumu’s feet dent the ground still shocked him.
-    </div>
+    <div class="narrator">Despite that, seeing Mumu’s feet dent the ground still shocked him.</div>
 
-    <div class="narrator">
-        If Mumu had mastered even basic energy cultivation, he would have lost.
-    </div>
+    <div class="narrator">If Mumu had mastered even basic energy cultivation, he would have lost.</div>
 
-    <div class="narrator">
-        Still, he wanted to shine in front of Mumu, so he would accept his offer of being his disciple.
-    </div>
+    <div class="narrator">Still, he wanted to shine in front of Mumu, so he would accept his offer of being his disciple.</div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Did you see that? This is the Mystery of the Four Way Foot Extreme Weight technique where I become one…”
     </div>
@@ -981,7 +634,7 @@
         “Mister.”
     </div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Huh?”
     </div>
@@ -991,53 +644,35 @@
         “You must keep this a secret from my father.”
     </div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “What do you mean?”
     </div>
 
-    <div class="narrator">
-        At that moment, Mumu turned the dial on his right wristband.
-    </div>
+    <div class="narrator">At that moment, Mumu turned the dial on his right wristband.</div>
 
-    <div class="narrator">
-        It went from eight to six.
-    </div>
+    <div class="narrator">It went from eight to six.</div>
 
-    <div class="narrator">
-        Jo Il-ryang couldn’t understand what he was doing.
-    </div>
+    <div class="narrator">Jo Il-ryang couldn’t understand what he was doing.</div>
 
-    <div class="narrator">
-        And then, Mumu placed his hands on the man’s chest.
-    </div>
+    <div class="narrator">And then, Mumu placed his hands on the man’s chest.</div>
 
     <div class="dialogue mumu">
         <span class="name">Mumu</span>
         “I’ll try again.”
     </div>
 
-    <div class="narrator">
-        Jo Il-ryang laughed at Mumu’s words.
-    </div>
+    <div class="narrator">Jo Il-ryang laughed at Mumu’s words.</div>
 
-    <div class="narrator">
-        The child had a cute side.
-    </div>
+    <div class="narrator">The child had a cute side.</div>
 
-    <div class="narrator">
-        He didn’t like losing, so he tried again.
-    </div>
+    <div class="narrator">He didn’t like losing, so he tried again.</div>
 
-    <div class="narrator">
-        The desire to win was one of the things that Murim warriors had.
-    </div>
+    <div class="narrator">The desire to win was one of the things that Murim warriors had.</div>
 
-    <div class="narrator">
-        And there was nothing bad about it.
-    </div>
+    <div class="narrator">And there was nothing bad about it.</div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Huhuhu. Give it another try.”
     </div>
@@ -1047,86 +682,58 @@
         “Then I will push.”
     </div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Do whatever you…”
     </div>
 
     <div class="sfx">DUDUD!</div>
 
-    <div class="narrator">
-        At that moment, Mumu’s right sleeve tore, showing off his muscles.
-    </div>
+    <div class="narrator">At that moment, Mumu’s right sleeve tore, showing off his muscles.</div>
 
-    <div class="thought">
-        ‘!?’
-    </div>
+    <div class="thought">‘!?’</div>
 
-    <div class="narrator">
-        Jo Il-ryang’s eyes widened as the muscles on the right arm grew.
-    </div>
+    <div class="narrator">Jo Il-ryang’s eyes widened as the muscles on the right arm grew.</div>
 
-    <div class="thought">
-        ‘What the! His muscles are getting bigger…’
-    </div>
+    <div class="thought">‘What the! His muscles are getting bigger…’</div>
 
-    <div class="narrator">
-        It was then.
-    </div>
+    <div class="narrator">It was then.</div>
 
-    <div class="narrator">
-        He couldn’t hide his shock at the tremendous force which pushed against his chest.
-    </div>
+    <div class="narrator">He couldn’t hide his shock at the tremendous force which pushed against his chest.</div>
 
-    <div class="narrator">
-        He ended up using more internal energy to stabilize himself.
-    </div>
+    <div class="narrator">He ended up using more internal energy to stabilize himself.</div>
 
-    <div class="narrator">
-        However, the moment Mumu’s arms stretched out.
-    </div>
+    <div class="narrator">However, the moment Mumu’s arms stretched out.</div>
 
     <div class="sfx">THUD!</div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Euk!”
     </div>
 
-    <div class="narrator">
-        His connection with the earth was cut off, and Jo Il-ryang’s body, unable to withstand the force, was thrown back.
-    </div>
+    <div class="narrator">His connection with the earth was cut off, and Jo Il-ryang’s body, unable to withstand the force, was thrown back.</div>
 
     <div class="sfx">TATATAK!</div>
 
-    <div class="narrator">
-        It was only after getting thrown 20 steps back that Jo Il-ryang was able to stop.
-    </div>
+    <div class="narrator">It was only after getting thrown 20 steps back that Jo Il-ryang was able to stop.</div>
 
-    <div class="thought">
-        ‘What in the world, such an unbelievable power…’
-    </div>
+    <div class="thought">‘What in the world, such an unbelievable power…’</div>
 
-    <div class="dialogue">
+    <div class="dialogue ilryang">
         <span class="name">Jo Il-ryang</span>
         “Kuak!”
     </div>
 
-    <div class="narrator">
-        Jo Il-ryang started coughing up blood.
-    </div>
+    <div class="narrator">Jo Il-ryang started coughing up blood.</div>
 
-    <div class="thought">
-        ‘T-Teacher!’
-    </div>
+    <div class="thought">‘T-Teacher!’</div>
 
-    <div class="narrator">
-        Yu Jin-hyuk, who was watching that, was confused.
-    </div>
+    <div class="narrator">Yu Jin-hyuk, who was watching that, was confused.</div>
 
 
 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; padding-top: 30px; border-top: 2px solid #333; font-family: 'Nunito', sans-serif;">
-<a href="Chapter_12.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">&larr; Previous</a><a href="index.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">Home</a><a href="Chapter_14.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">Next &rarr;</a>
+<a href="Chapter_12.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">&larr; Previous</a><a href="index.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">Home</a><a href="Chapter_14.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">Next &rarr;</a>
 </div>
 </body>
 </html>
