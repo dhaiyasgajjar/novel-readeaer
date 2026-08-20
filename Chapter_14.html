@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 14 - Manhwa Reader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Caveat:wght@400;700&family=Comic+Neue:wght@700&family=Nunito:wght@400;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+    :root { --bg-color: #1a1a1a; --text-color: #e5e7eb; --thought-bg: #2d3748; --dialogue-bg: #2d2d2d; --sfx-color: #f87171; --accent-gold: #fbbf24; }
+    body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Nunito', sans-serif; max-width: 700px; margin: 0 auto; padding: 40px 20px; line-height: 1.7; font-size: 19px; }
+    .location { font-family: 'Permanent Marker', cursive; text-align: center; color: var(--accent-gold); font-size: 1.5em; margin: 60px 0 40px 0; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+    .sfx { font-family: 'Bangers', system-ui; font-size: 3.5em; color: var(--sfx-color); text-align: center; margin: 40px 0; letter-spacing: 3px; text-shadow: 3px 3px 0px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; transform: rotate(-2deg); }
+    .thought { font-family: 'Caveat', cursive; font-size: 1.6em; background-color: var(--thought-bg); border-left: 5px solid #a78bfa; padding: 15px 25px; margin: 25px 10%; color: #ddd6fe; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+    .narrator { font-family: 'Nunito', sans-serif; margin: 25px 0; color: #9ca3af; text-align: justify; }
+    .dialogue { font-family: 'Comic Neue', cursive; font-weight: 700; background-color: var(--dialogue-bg); border-radius: 15px; padding: 20px; margin: 25px 0; position: relative; box-shadow: 0 4px 8px rgba(0,0,0,0.4); font-size: 1.2em; }
+    .dialogue::after { content: ''; position: absolute; width: 0; height: 0; border: 15px solid transparent; }
+    .dialogue .name { font-family: 'Nunito', sans-serif; font-weight: 900; margin-bottom: 8px; display: block; text-transform: uppercase; font-size: 0.8em; letter-spacing: 1.5px; opacity: 0.8; }
+    .mumu { border: 2px solid #10b981; margin-left: 10%; }
+    .mumu::after { border-top-color: #10b981; border-bottom: 0; border-right: 0; bottom: -15px; left: 20px; }
+    .mumu .name { color: #34d399; }
+    .father { border: 2px solid #3b82f6; margin-right: 10%; }
+    .father::after { border-top-color: #3b82f6; border-bottom: 0; border-left: 0; bottom: -15px; right: 20px; }
+    .father .name { color: #93c5fd; }
+    .divider { text-align: center; color: #4b5563; margin: 60px 0; font-size: 1.5em; letter-spacing: 15px; }
+</style>
+</head>
+<body>
+
+    <div class="location">CHAPTER 14</div>
+
+    <div class="narrator">Jo Il-ryang, the second of the three strong teachers, was on his bed with his hands folded.</div>
+
+    <div class="narrator">When he opened his eyes, he saw a lantern flame fluttering because of the breeze coming in through the open window and a middle aged man with a beard sitting opposite of him.</div>
+
+    <div class="narrator">He was Mak Il-wong, the first of the three strong teachers.</div>
+
+    <div class="narrator">It was getting dark enough to light a lamp, and Mak Il-wong was reading a book as usual.</div>
+
+    <div class="dialogue mak-il-wong">
+        <span class="name">Mak Il-wong</span>
+        “Are you awake?”
+    </div>
+
+    <div class="dialogue jo-il-ryang">
+        <span class="name">Jo Il-ryang</span>
+        “Elder brother...”
+    </div>
+
+    <div class="narrator">After responding, Jo Il-ryang sighed. He thought that what happened with Mumu was a dream. Jo Il-ryang opened his mouth.</div>
+
+    <div class="dialogue jo-il-ryang">
+        <span class="name">Jo Il-ryang</span>
+        “… brother. I had a dream.”
+    </div>
+
+    <div class="dialogue mak-il-wong">
+        <span class="name">Mak Il-wong</span>
+        “Dream?”
+    </div>
+
+    <div class="dialogue jo-il-ryang">
+        <span class="name">Jo Il-ryang</span>
+        “Yes. It was so absurd that I don’t even want to tell you about it, but if that really happened, it would be the most absurd thing that’s happened in my Murim life.”
+    </div>
+
+    <div class="narrator">At Jo Il-ryang’s words, Mak Il-wong took his eyes off his book and looked ahead. And then he said,</div>
+
+    <div class="dialogue mak-il-wong">
+        <span class="name">Mak Il-wong</span>
+        “You passed out for half a day, and your memory doesn’t seem perfect, I’m going to get a doctor.”
+    </div>
+
+    <div class="dialogue jo-il-ryang">
+        <span class="name">Jo Il-ryang</span>
+        “Huh?”
+    </div>
+
+    <div class="thought">Half a day? How?</div>
+
+    <div class="narrator">He was startled and tried to get up, but his heart was pounding.</div>
+
+    <div class="sfx">EUK!</div>
+
+    <div class="narrator">Then Mak Il-wong approached him and asked.</div>
+
+    <div class="dialogue mak-il-wong">
+        <span class="name">Mak Il-wong</span>
+        “I want to ask one thing before getting a doctor. Who left that mark on your chest?”
+    </div>
+
+    <div class="dialogue jo-il-ryang">
+        <span class="name">Jo Il-ryang</span>
+        “Huh? My chest?”
+    </div>
+
+    <div class="narrator">Jo Il-ryang’s expression was blank as he looked at his chest. His shirt was missing, and his chest was bruised in the shape of two hand prints. The moment he saw that, goosebumps rose on Jo Il-ryang’s body.</div>
+
+    <div class="thought">Damn it, it wasn’t a dream.</div>
+
+    <div class="narrator">It was absurd, but it seemed to have happened. And gradually his memory cleared up. The great strength of Mumu, the adopted son in Yu Jin-hyuk’s family, has broken a myth about martial artists. Thanks to that, his plans failed. While he started to remember what happened his face turned red in embarrassment.</div>
+
+    <div class="dialogue yu-jin-hyuk">
+        <span class="name">Yu Jin-hyuk</span>
+        [T-Teacher!]
+    </div>
+
+    <div class="dialogue jo-il-ryang">
+        <span class="name">Jo Il-ryang</span>
+        [Ji… Jin-hyuk… don’t… don’t tell… anyone… about this…]
+    </div>
+
+    <div class="narrator">He fainted after saying that. In addition to his desire to take Mumu in as a disciple, he wanted to show Yu Jin-hyuk his greatness, but he was humiliated. Before he fainted, he even asked his disciple to not tell anyone about this.</div>
+
+    <div class="thought">Ahhh.</div>
+
+    <div class="narrator">He was even more embarrassed after recalling everything. He never thought that he would meet such a monstrous child. How could he reveal this to his elder brother, who was looking down at him with skeptical eyes? He couldn’t tell him as he would lose face. But he tried to give him some form of an answer.</div>
+
+    <div class="dialogue jo-il-ryang">
+        <span class="name">Jo Il-ryang</span>
+        “I was competing with someone like…”
+    </div>
+
+    <div class="narrator">Despite trying, Jo Il-ryang decided against telling him and hastily changed the topic.</div>
+
+    <div class="dialogue jo-il-ryang">
+        <span class="name">Jo Il-ryang</span>
+        “El-Elder brother! What happened to Jin-hyuk's blood points release? I was supposed to do it…”
+    </div>
+
+    <div class="dialogue mak-il-wong">
+        <span class="name">Mak Il-wong</span>
+        “You’re asking so soon.”
+    </div>
+
+    <div class="dialogue jo-il-ryang">
+        <span class="name">Jo Il-ryang</span>
+        “Did Goha do it?”
+    </div>
+
+    <div class="narrator">Goha was the youngest of the teachers. Originally, he decided to take charge of the blood points release and treatment based on a bet with Jin-hyuk. But if he passed out like this, then things must have changed. The elder one, Mak Il-wong, clicked his tongue.</div>
+
+    <div class="dialogue mak-il-wong">
+        <span class="name">Mak Il-wong</span>
+        “I did it.”
+    </div>
+
+    <div class="dialogue jo-il-ryang">
+        <span class="name">Jo Il-ryang</span>
+        “Yes?”
+    </div>
+
+    <div class="dialogue mak-il-wong">
+        <span class="name">Mak Il-wong</span>
+        “I gave him my energy and opened his blood points.”
+    </div>
+
+    <div class="dialogue jo-il-ryang">
+        <span class="name">Jo Il-ryang</span>
+        “You did everything?”
+    </div>
+
+    <div class="dialogue mak-il-wong">
+        <span class="name">Mak Il-wong</span>
+        “Yes.”
+    </div>
+
+    <div class="dialogue jo-il-ryang">
+        <span class="name">Jo Il-ryang</span>
+        “What?”
+    </div>
+
+    <div class="dialogue mak-il-wong">
+        <span class="name">Mak Il-wong</span>
+        “What? Ah! Follow me.”
+    </div>
+
+    <div class="narrator">Mak Il-wong, opened the door and walked out. Puzzled, Jo Il-ryang grabbed something to cover himself and rushed out. Right next door. There, he saw Goha, sitting on a bed staring blankly as if he was in shock. And his right hand was swollen. Goha, who was dazed, slowly turned his head and looked at them as they entered.</div>
+
+    <div class="dialogue jo-il-ryang">
+        <span class="name">Jo Il-ryang</span>
+        “You too?”
+    </div>
+
+    <div class="narrator">At that, Goha looked sad. Goha felt like Jo Il-kyung knew what happened. When he saw the youngest of the three strong teachers, who was master at using his body, holding his swollen right hand, it was obvious.</div>
+
+    <div class="thought">That monstrous child…</div>
+
+    <div class="narrator">He never saw such ridiculous muscles in all his life. He couldn’t understand it. And then something flashed through his mind.</div>
+
+    <div class="thought">Wait. I told Jin-hyuk to not tell anyone.</div>
+
+    <div class="narrator">If Goha was like this, then Jin-hyuk must have told the truth. Jo Il-ryang grabbed his head. Seeing him like that, Mak Il-wong asked as he sighed.</div>
+
+    <div class="dialogue mak-il-wong">
+        <span class="name">Mak Il-wong</span>
+        “Sigh. What the hell happened while I was away?”
+    </div>
+
+    <div class="dialogue jo-il-ryang">
+        <span class="name">Jo Il-ryang</span>
+        “…”
+    </div>
+
+    <div class="dialogue goha">
+        <span class="name">Goha</span>
+        “…”
+    </div>
+
+    <div class="narrator">In response to such a question, Jo Il-ryang and Goha kept their mouths shut as if they made a silent promise.</div>
+
+    <div class="divider">◆ ◆ ◆</div>
+
+    <div class="narrator">At the same time. Yu Jin-hyuk was lying on his bed with the lamps off. He was exhausted from the treatment he received, and then energy cultivation. He had an especially hard time because it was Mak Il-wong who did it, so he laid down earlier than normal. Yet he was unable to sleep.</div>
+
+    <div class="thought">Damn it.</div>
+
+    <div class="narrator">Three, no two more days, and he will be admitted to the Heavenly Martial Arts Academy. He waited so eagerly for that day to come, but now his heart wasn’t so eager. If Mumu got accepted too, then he would be in the unfortunate situation of having to spend two or three years with that muscular idiot.</div>
+
+    <div class="thought">Ah, no!</div>
+
+    <div class="narrator">Just the thought was terrifying. Even thinking about what happened during the day was making him want to vanish.</div>
+
+    <div class="thought">My teachers became like that…</div>
+
+    <div class="narrator">It was because of his negligence. As his teacher said, he shouldn’t have told anyone. Jo Il-ryang insisted on not telling anyone, but he did thinking that Goha might be able to subdue Mumu since he was much bigger than Jo Il-ryang. However, the result was the same.</div>
+
+    <div class="dialogue goha">
+        <span class="name">Goha</span>
+        [You’re the type of person I like. Was it Mumu? Why don’t you learn martial arts?]
+    </div>
+
+    <div class="narrator">Goha, who was strong and acknowledged Mumu, asked. After some basic introductions, he convinced Mumu to arm wrestle him, but while arm wrestling his hand broke.</div>
+
+    <div class="dialogue goha">
+        <span class="name">Goha</span>
+        [Never! Never tell elder brother!]
+    </div>
+
+    <div class="narrator">Like Yo Il-kyung, Goha said the same thing. Looking at his red face, Jin-hyuk knew just how embarrassed he was. They were broken by the strength of a man who only trained his muscles. It was natural for their self-esteem to be damaged. At that, they lost in front of their disciple.</div>
+
+    <div class="thought">Damn it. What the hell is he?</div>
+
+    <div class="narrator">He was someone who was hard to understand. Two of his teachers who were famous in Murim, fell on their knees in front of Mumu’s mighty strength. They didn’t fight, but even if they did, Jin-hyuk wasn’t sure about what the outcome would be, Mumu had enough strength to make his teachers shudder.</div>
+
+    <div class="thought">Is it possible to be that strong by only training muscles?</div>
+
+    <div class="narrator">All three teachers had said that there was a limit to how strong a physical body could be trained. However, looking at Mumu, it didn’t seem like that. The muscles which he trained seemed to exceed the strength of internal energy…</div>
+
+    <div class="thought">No.</div>
+
+    <div class="narrator">Jin-hyuk shook his head. No matter how he thought about it, that didn’t make sense. Isn’t this something which directly contradicts the history and knowledge that has been passed down in Murim for years?</div>
+
+    <div class="thought">Right.</div>
+
+    <div class="narrator">It was said that the Four Great Warriors can cut down a mountain peak. And that would be impossible to do by only training the body.</div>
+
+    <div class="thought">But, what are they?</div>
+
+    <div class="narrator">He wondered what the bands around Mumu’s arms and ankles were. When he turned down the number, his arms grew bigger, and Mumu asked for it to be kept a secret from his father. He was tempted to use it against Mumu as it looked like a weakness, but Mumu’s words made it impossible to say anything.</div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        [If you promise to not tell father, I won’t talk about your teachers being hurt by me anywhere.]
+    </div>
+
+    <div class="narrator">He thought Mumu was naïve, but he was wrong. He knew that his teachers were ashamed of their losses and didn’t want anyone knowing about them. In the end, he accepted it.</div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        [Jin-hyuk, you’re a pretty good guy.]
+    </div>
+
+    <div class="thought">I really hate him.</div>
+
+    <div class="narrator">Just the thought of Mumu’s smiling face annoyed him. Jin-hyuk prayed to the Goddess of Heaven for the first time. Begging for Mumu to fail the entrance test.</div>
+
+    <div class="divider">◆ ◆ ◆</div>
+
+    <div class="location">TWO DAYS LATER</div>
+
+    <div class="narrator">Mumu and Jin-hyuk got up early to take the entrance test, which was to be held at 4 o’clock, and were being sent off by their family. After two hours of walking, they would arrive at the academy. Lady Jang hugged her son and said,</div>
+
+    <div class="dialogue lady-jang">
+        <span class="name">Lady Jang</span>
+        “If you work hard, good results will come.”
+    </div>
+
+    <div class="dialogue yu-jin-hyuk">
+        <span class="name">Yu Jin-hyuk</span>
+        “Mother…”
+    </div>
+
+    <div class="dialogue lady-jang">
+        <span class="name">Lady Jang</span>
+        “I will pray earnestly for you to pass the test. And get along well with Mumu. If not your brother, who will you turn to?”
+    </div>
+
+    <div class="narrator">At those words, Yu Jin-hyuk tightly shut his eyes.</div>
+
+    <div class="thought">I wish he would fail mother.</div>
+
+    <div class="narrator">He hoped for that, but he never said it out loud. His father and mother wanted them to get along. However, Jin-hyuk prayed that Mumu would be eliminated. That was when Yu Yeop-kyung approached him and said.</div>
+
+    <div class="dialogue father">
+        <span class="name">Father</span>
+        “Son. Stay healthy.”
+    </div>
+
+    <div class="dialogue yu-jin-hyuk">
+        <span class="name">Yu Jin-hyuk</span>
+        “… I understand.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Father</span>
+        “And make sure that the daughter of the criminal affairs’ head stays safe. I think you will do well. I wish you the best of luck and get along with Mumu.”
+    </div>
+
+    <div class="narrator">The same words as his mother. Yu Jin-hyuk felt sad, but he nodded. Once he was out of the house, he had no intention of sticking with Mumu. Finally, Yu Yeop-kyung approached Mumu and hugged him.</div>
+
+    <div class="dialogue father">
+        <span class="name">Father</span>
+        “Son.”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Yes.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Father</span>
+        “Please don’t get in trouble.”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “… father. If I pass, you won’t get to see me for a while. Is that all you have to say?”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Father</span>
+        “No.”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Then go ahead and say it.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Father</span>
+        “You’re going to the academy, so I won’t tell you not to train anymore.”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Really?”
+    </div>
+
+    <div class="narrator">Mumu's eyes twinkled at that. Looking at that, Yu Yeop-kyung sighed. The man in the dream told him to raise Mumu as a normal kid, but in the end he couldn’t. Maybe this was Mumu’s birthright. In any case, Yu Yeop-kyung, who thought that it was his duty as a parent to pray for the best, decided to let Mumu search for his own path.</div>
+
+    <div class="dialogue yu-jin-hyuk">
+        <span class="name">Yu Jin-hyuk</span>
+        “Then we will leave.”
+    </div>
+
+    <div class="narrator">Mumu and Jin-hyuk were sent off by their family. Since Mumu woke up much earlier than normal, he was walking with his eyes half-closed, Jin-hyuk thought that it was pathetic. And since this was their first journey together, they were awkward and didn’t talk to each other. After walking down the road for about half an hour.</div>
+
+    <div class="sfx">CLANK!</div>
+
+    <div class="dialogue yu-jin-hyuk">
+        <span class="name">Yu Jin-hyuk</span>
+        “Huh?”
+    </div>
+
+    <div class="narrator">The sound of horses and wheels could be heard. Jin-hyuk was puzzled since it was early in the morning, and he looked at where the sound was coming from. What he saw was a luxurious carriage coming their way. It came so quickly that it made dust rise up from the ground.</div>
+
+    <div class="thought">What?</div>
+
+    <div class="narrator">They were shocked when the carriage stopped right in front of them, and then its window rattled open, revealing a face. It was none other than Mo Il-hwa. Pointing her thumb towards the inside of the carriage, she shouted at them.</div>
+
+    <div class="dialogue mo-il-hwa">
+        <span class="name">Mo Il-hwa</span>
+        “Hey, get in!”
+    </div>
+
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; padding-top: 30px; border-top: 2px solid #333; font-family: 'Nunito', sans-serif;">
+<a href="Chapter_13.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">&larr; Previous</a><a href="index.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">Home</a><a href="Chapter_15.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">Next &rarr;</a>
+</div>
+</body>
+</html>
