@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 11 - Manhwa Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Caveat:wght@400;700&family=Comic+Neue:wght@700&family=Nunito:wght@400;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-color: #1a1a1a; --text-color: #e5e7eb; --thought-bg: #2d3748; --dialogue-bg: #2d2d2d; --sfx-color: #f87171; --accent-gold: #fbbf24; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Nunito', sans-serif; max-width: 700px; margin: 0 auto; padding: 40px 20px; line-height: 1.7; font-size: 19px; }
+        .location { font-family: 'Permanent Marker', cursive; text-align: center; color: var(--accent-gold); font-size: 1.5em; margin: 60px 0 40px 0; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .sfx { font-family: 'Bangers', system-ui; font-size: 3.5em; color: var(--sfx-color); text-align: center; margin: 40px 0; letter-spacing: 3px; text-shadow: 3px 3px 0px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; transform: rotate(-2deg); }
+        .thought { font-family: 'Caveat', cursive; font-size: 1.6em; background-color: var(--thought-bg); border-left: 5px solid #a78bfa; padding: 15px 25px; margin: 25px 10%; color: #ddd6fe; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .narrator { font-family: 'Nunito', sans-serif; margin: 25px 0; color: #9ca3af; text-align: justify; }
+        .dialogue { font-family: 'Comic Neue', cursive; font-weight: 700; background-color: var(--dialogue-bg); border-radius: 15px; padding: 20px; margin: 25px 0; position: relative; box-shadow: 0 4px 8px rgba(0,0,0,0.4); font-size: 1.2em; }
+        .dialogue::after { content: ''; position: absolute; width: 0; height: 0; border: 15px solid transparent; }
+        .dialogue .name { font-family: 'Nunito', sans-serif; font-weight: 900; margin-bottom: 8px; display: block; text-transform: uppercase; font-size: 0.8em; letter-spacing: 1.5px; opacity: 0.8; }
+        .mumu { border: 2px solid #10b981; margin-left: 10%; }
+        .mumu::after { border-top-color: #10b981; border-bottom: 0; border-right: 0; bottom: -15px; left: 20px; }
+        .mumu .name { color: #34d399; }
+        .father { border: 2px solid #3b82f6; margin-right: 10%; }
+        .father::after { border-top-color: #3b82f6; border-bottom: 0; border-left: 0; bottom: -15px; right: 20px; }
+        .father .name { color: #93c5fd; }
+        .divider { text-align: center; color: #4b5563; margin: 60px 0; font-size: 1.5em; letter-spacing: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="location">CHAPTER 11</div>
+
+    <div class="dialogue oh-ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “I’m really sorry. It would have been better if I hadn’t asked to bring Mumu along.”
+    </div>
+
+    <div class="narrator">
+        Shortly after leaving the manor, Oh Ji-kang apologized. Because it felt like it was all his fault.
+    </div>
+
+    <div class="narrator">
+        At that, Yu Yeop-kyung shook his head.
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “No. If we want to find out who is at fault, then it will be my first son who graduated from the academy.”
+    </div>
+
+    <div class="narrator">
+        Yu Yeop-kyung didn’t think much about what happened. What was happening had to happen. It wasn’t like he would get a chance to redo things because he regretted it, so dwelling on it didn’t seem good.
+    </div>
+
+    <div class="narrator">
+        Still, Oh Ji-kang spoke.
+    </div>
+
+    <div class="dialogue oh-ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “Still, since the lord said that he would support the second son and Mumu’s education, it doesn’t seem like a bad condition.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “Yes, but I wonder if Mumu is okay with it.”
+    </div>
+
+    <div class="narrator">
+        He was concerned. A child who lived alone with him in exile. What happened inside the manor was because of his immature son, and he was worried whether or not Mumu, who hadn’t interacted with a lot of people, would be able to adapt in the academy or not.
+    </div>
+
+    <div class="dialogue oh-ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “Don’t worry too much. Isn’t Mumu the most innocent and kind kid?”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “He’s kind, but he’s also stubborn.”
+    </div>
+
+    <div class="narrator">
+        He was sure of that. Mumu was training his body in secret. When he looked at Mumu, Mumu looked elsewhere.
+    </div>
+
+    <div class="thought">
+        ‘… this kid.’
+    </div>
+
+    <div class="narrator">
+        He was grown and a smart one. Seeing Yu Yeop-kyung become a little annoyed, Oh Ji-kang said.
+    </div>
+
+    <div class="dialogue oh-ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “Actually, what happened was wrong and unintentional, but I don’t think it’s bad for Mumu to enter the academy.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “What do you mean?”
+    </div>
+
+    <div class="dialogue oh-ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “Isn’t Mumu seventeen now? After a while, he will be a man and it will be impossible for him to grow up in your arms forever.”
+    </div>
+
+    <div class="narrator">
+        Mumu pouted at those words.
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “I can live with my father for the rest of my life.”
+    </div>
+
+    <div class="dialogue oh-ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “Ah, this kid really…”
+    </div>
+
+    <div class="narrator">
+        The kid really seemed to like his father a lot. At that, Oh Ji-kang stroked Mumu’s head and said.
+    </div>
+
+    <div class="dialogue oh-ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “I think going to the academy is a good opportunity for Mumu as well. You will be able to see things you haven’t, interact with your peers, and learn social skills.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “Hmm.”
+    </div>
+
+    <div class="narrator">
+        All those words were correct. In order to fill what was lacking, Mumu had to enter. And to learn stuff, an academy was the best place for Mumu. But,
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “But the Heavenly Martial Arts Academy is for Murim warriors.”
+    </div>
+
+    <div class="dialogue oh-ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “What about it?”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “What about it? How can he even get into that place when he never learned martial arts or anything related to it?”
+    </div>
+
+    <div class="narrator">
+        At Yu Yeop-kyung’s words, Oh Ji-kang frowned while looking at Mumu and said,
+    </div>
+
+    <div class="dialogue oh-ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “In the past, I would have thought so too. However, after seeing Mumu deal with that child and the escort warrior, if this kid doesn’t meet the qualifications of the academy then who can?”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “No that…”
+    </div>
+
+    <div class="dialogue oh-ji-kang">
+        <span class="name">Oh Ji-kang</span>
+        “Even the lord seems to have high hopes for Mumu.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “Huh.”
+    </div>
+
+    <div class="narrator">
+        At those words, Yu Yeop-kyung touched his forehead. He was sure that the man in his dream told him to not let Mumu become any stronger, but why was the kid getting stronger and stronger? Was it really a body naturally born with talent? But the man in the dream asked him to raise the child in a normal way.
+    </div>
+
+    <div class="thought">
+        ‘I don’t know what is right. And if I had to, I'd rather send him to a regular school… ah…’
+    </div>
+
+    <div class="narrator">
+        He thought that it would be better to send Mumu to a regular school, but when he thought about it, despite the pardon, he couldn’t get back to his normal life.
+    </div>
+
+    <div class="thought">
+        ‘It was a mistake.’
+    </div>
+
+    <div class="narrator">
+        He should have just refused as he was an adopted son. Then he would have been able to send him to a general school. Even if he was an adopted son, the only way for an adopted son to get accepted by the academy is if they were registered in the family register.
+    </div>
+
+    <div class="thought">
+        ‘The adoption of… no, Mumu doesn’t have to be bound by those chains.’
+    </div>
+
+    <div class="narrator">
+        Yu Yeop-kyung shook his head. Not because the child was adopted, but because Mumu had been by his side all this time, so he wanted the child to live his life in freedom.
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “Son.”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Yes.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “You can live your life the way you want to. If you don’t want to go to the Heavenly Martial Arts Academy then you don’t have to.”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “I will go.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “If you’re saying that for the sake of your father…”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “I heard that it’s a place which teaches one to train their body. So I will go.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “… do you mean it?”
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “Yes. And I’m curious about that friend thing too.”
+    </div>
+
+    <div class="narrator">
+        At Mumu’s words Yu Yeop-kyung had a sad expression. Right. If that was the reason, he couldn’t say no. If one day he was to grow old and turn into a handful of dirt, he wanted someone to be beside Mumu. In the end, Yu Yeop-kyung accepted it. That was when Mumu asked.
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “What do I call my father's family when we get home?”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “Huh?”
+    </div>
+
+    <div class="narrator">
+        The topic suddenly changed. Yu Yeop-kyung frowned at Mumu’s question and then answered.
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “You will call mother as mother and brother as brother… ah, Jin-hyuk is a bit tough. Since the both of you are the same age, you can be friends.”
+    </div>
+
+    <div class="narrator">
+        A quick conclusion. At that, Mumu exhaled and said.
+    </div>
+
+    <div class="dialogue mumu">
+        <span class="name">Mumu</span>
+        “I saw it in a book that illegitimate or adopted children are hated by their step mothers and are not treated as siblings, so they say to not expect any kind of familial love.”
+    </div>
+
+    <div class="dialogue father">
+        <span class="name">Yu Yeop-kyung</span>
+        “…”
+    </div>
+
+    <div class="narrator">
+        Yu Yeop-kyung was speechless. Which book said that? It was absurd so he looked at Oh Ji-kang who was avoiding his gaze.
+    </div>
+
+    <div class="thought">
+        ‘… it was you.’
+    </div>
+
+    <div class="narrator">
+        The culprit was caught. Giving such a strange book to a child and causing stress. He was afraid that Mumu was bored in exile so as a nice man, he would occasionally give him books.
+    </div>
+
+    <div class="thought">
+        ‘Hmm.’
+    </div>
+
+    <div class="narrator">
+        On the other hand, however, it was true. Will his wife and sons treat Mumu well without prejudice?
+    </div>
+
+    <div class="divider">◆ ◆ ◆</div>
+
+    <div class="location">THE HOME OF YU YEOP-KYUNG</div>
+
+    <div class="narrator">
+        There, a few people were busy preparing something. The delicious smell which tickled noses was everywhere. In the yard, a middle-aged woman was leading the preparations, she was Yu Yeop-kyung’s wife, Jang Yeon-hye. She couldn’t hide her joy at the return of her husband 17 years later. She wanted to give him a nice welcome home, so she bought a hen and beef to cook for him.
+    </div>
+
+    <div class="dialogue jang-yeon-hye">
+        <span class="name">Jang Yeon-hye</span>
+        “Now now. The master is coming soon, so let’s hurry up.”
+    </div>
+
+    <div class="dialogue maid">
+        <span class="name">Maid</span>
+        “Yes. My lady.”
+    </div>
+
+    <div class="narrator">
+        There was a boy who was looking at her. The boy looked like a younger version of Yu Yeop-kyung. It was the second child, Yu Jin-hyuk.
+    </div>
+
+    <div class="thought">
+        ‘Mother…’
+    </div>
+
+    <div class="narrator">
+        He hadn’t seen his mother act like this in a long time. The first time he saw her like this was when his brother got second position in the academy, and the second time was when he cleared his father’s name. And this was the third time. He didn’t dislike the constant laughter.
+        <br><br>
+        But now.
+    </div>
+
+    <div class="thought">
+        ‘I don’t feel good for some reason.’
+    </div>
+
+    <div class="narrator">
+        He was just an infant when his father was sent into exile. So he didn’t even know his face. He wondered if they would bond when he met his father, whose face he didn’t know.
+    </div>
+
+    <div class="thought">
+        ‘How will I feel when we meet?’
+    </div>
+
+    <div class="narrator">
+        At the same time, he was curious. Before his brother removed his father’s bad name, he hated the one called his father. He cursed him every night, wondering what he had done to leave the family and go into exile and for the family to be called a sinner’s family. But, that was because he was too young. Now that his older brother cleared his father’s name, he was able to understand things a little.
+    </div>
+
+    <div class="thought">
+        ‘Your father is a truly wonderful man.’
+        <br>
+        ‘When you meet your father, you will like him too.’
+    </div>
+
+    <div class="narrator">
+        His mother and brother would say such things. But they couldn’t say what his good points were. They would speak abstractly, like he was a caring husband and a good father.
+    </div>
+
+    <div class="thought">
+        ‘So a caring husband leaves their home and abandons his children for someone else’s, is that what a good father is?’
+    </div>
+
+    <div class="narrator">
+        No matter how he thought about it, his father looked like a flawed person. It was then, his mother approached him.
+    </div>
+
+    <div class="dialogue jang-yeon-hye">
+        <span class="name">Jang Yeon-hye</span>
+        “Jin-hyuk.”
+    </div>
+
+    <div class="dialogue yu-jin-hyuk">
+        <span class="name">Yu Jin-hyuk</span>
+        “Mother.”
+    </div>
+
+    <div class="dialogue jang-yeon-hye">
+        <span class="name">Jang Yeon-hye</span>
+        “What is with that face?”
+    </div>
+
+    <div class="narrator">
+        She saw her son who seemed quieter than usual, she knew how he felt. To her, Yu Jin-hyuk said,
+    </div>
+
+    <div class="dialogue yu-jin-hyuk">
+        <span class="name">Yu Jin-hyuk</span>
+        “I don’t know if I should rejoice or not.”
+    </div>
+
+    <div class="dialogue jang-yeon-hye">
+        <span class="name">Jang Yeon-hye</span>
+        “Again with that? He’s your father.”
+    </div>
+
+    <div class="dialogue yu-jin-hyuk">
+        <span class="name">Yu Jin-hyuk</span>
+        “… yes. I know.”
+    </div>
+
+    <div class="thought">
+        ‘It doesn’t make sense to say that to me when I don’t even remember his face.’
+    </div>
+
+    <div class="narrator">
+        But he didn’t say that out loud. His mother, who understood what was going on, hugged her son and said.
+    </div>
+
+    <div class="dialogue jang-yeon-hye">
+        <span class="name">Jang Yeon-hye</span>
+        “When you see your father, you will fall in love with him. So, don’t complicate your thoughts with this and that.”
+    </div>
+
+    <div class="dialogue yu-jin-hyuk">
+        <span class="name">Yu Jin-hyuk</span>
+        “Then what about the adopted one?”
+    </div>
+
+    <div class="dialogue jang-yeon-hye">
+        <span class="name">Jang Yeon-hye</span>
+        “Huh?”
+    </div>
+
+    <div class="narrator">
+        Lady Jang’s expression slightly changed at the mention of the adopted one. She too, was upset to hear that her husband had taken up a child. There was no woman who wouldn’t find it strange that their exiled husband suddenly started raising a child. At first, she had all sorts of thoughts.
+    </div>
+
+    <div class="thought">
+        ‘Maybe out of sympathy?’
+    </div>
+
+    <div class="narrator">
+        Since then, all kinds of doubts have arisen. But they never last long. She knew that her husband wasn’t the kind to do the things she was thinking about. She thought that he took the child out of pity.
+    </div>
+
+    <div class="dialogue jang-yeon-hye">
+        <span class="name">Jang Yeon-hye</span>
+        “Behave. If it’s true, then that person is this mother’s child and your brother.”
+    </div>
+
+    <div class="dialogue yu-jin-hyuk">
+        <span class="name">Yu Jin-hyuk</span>
+        “Haa.”
+    </div>
+
+    <div class="narrator">
+        Yu Jin-hyuk sighed at those words. His mother was a soft person when it came to his father. Despite being strict about her kids' education.
+    </div>
+
+    <div class="dialogue jang-yeon-hye">
+        <span class="name">Jang Yeon-hye</span>
+        “This mother will try to do her best. So Jin-hyuk, can you do your best too?”
+    </div>
+
+    <div class="dialogue yu-jin-hyuk">
+        <span class="name">Yu Jin-hyuk</span>
+        “… I don’t know. What if that son treats you like a step mother and then treats me harshly because I’m the biological child?”
+    </div>
+
+    <div class="dialogue jang-yeon-hye">
+        <span class="name">Jang Yeon-hye</span>
+        “What? Jin-hyuk. How can you think so negatively when nothing has happened at all?”
+    </div>
+
+    <div class="dialogue yu-jin-hyuk">
+        <span class="name">Yu Jin-hyuk</span>
+        “… adopted or illegitimate children are always greedy, so it’s said that they need to be strictly educated from the beginning so they don’t look down on us. I’m afraid that my mother will be hurt because of your nature.”
+    </div>
+
+    <div class="dialogue jang-yeon-hye">
+        <span class="name">Jang Yeon-hye</span>
+        “Where the hell did you hear that from?”
+    </div>
+
+    <div class="dialogue yu-jin-hyuk">
+        <span class="name">Yu Jin-hyuk</span>
+        “It was written in a book.”
+    </div>
+
+    <div class="thought">
+        ‘… ahh.’
+    </div>
+
+    <div class="narrator">
+        At those words, she rubbed her forehead. She wondered where her son had gotten such a book. And now it was clear. That was when an old man at the entrance ran towards her.
+    </div>
+
+    <div class="dialogue old-man">
+        <span class="name">Old Man</span>
+        “L-Lady! The master is back!”
+    </div>
+
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; padding-top: 30px; border-top: 2px solid #333; font-family: 'Nunito', sans-serif;">
+<a href="Chapter_10.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">&larr; Previous</a><a href="index.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">Home</a><a href="Chapter_12.html" style="color: #fbbf24; text-decoration: none; font-weight: 900; padding: 12px 24px; background: #2d2d2d; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">Next &rarr;</a>
+</div>
+</body>
+</html>
